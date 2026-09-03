@@ -1,0 +1,300 @@
+﻿server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+spring:
+  # Local IDE and command-line runs do not load .env automatically. Docker still
+  # injects real environment variables, which keep higher precedence.
+  config:
+    import: optional:file:./.env[.properties]
+  application:
+    name: ai-person-post-matching
+  # 排除 Redisson 自动配置：由 RedissonTolerantConfig 提供惰性/降级客户端，
+  # Redis 不可用时应用仍可启动，缓存与分布式锁降级运行
+  autoconfigure:
+    exclude: org.redisson.spring.starter.RedissonAutoConfigurationV2
+  # MySQL / MyBatis-Plus
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mybatis-plus:
+    configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    global-config:
+      db-config:
+        logic-delete-field: isDeleted
+        logic-delete-value: 1
+        logic-not-delete-value: 0
+    mapper-locations: classpath*:/mapper/**/*.xml
+
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  # Jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+  # Flyway
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  # Freemarker (AI Prompt模板)
+  freemarker:
+    template-loader-path: classpath:/ai/prompt/
+    suffix: .ftl
+    charset: UTF-8
+
+  # SiliconFlow Embedding（LangChain4j EmbeddingConfig 使用）
+  ai:
+    openai:
+      embedding:
+        api-key: ${SILICONFLOW_API_KEY:}
+        base-url: ${SILICONFLOW_BASE_URL:https://api.siliconflow.cn/v1}
+        options:
+          model: Qwen/Qwen3-VL-Embedding-8B
+          dimensions: 1536
+
+  # RabbitMQ
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        missing-queues-fatal: false
+      direct:
+        missing-queues-fatal: false
+
+  # Redis
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      database: 0
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 2
+          max-wait: 3000ms
+
+# Milvus (Zilliz Cloud)
+milvus:
+  # Prefer Milvus whenever endpoint settings are provided. If it cannot be
+  # reached after three attempts, vector operations automatically use MySQL.
+  enabled: ${MILVUS_ENABLED:true}
+  uri: ${MILVUS_URI:}
+  token: ${MILVUS_TOKEN:}
+  database: ${MILVUS_DATABASE:}
+  collection-name: ${MILVUS_COLLECTION:person_post_vector}
+  dimension: 1536
+
+# JWT
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+# Neo4j 图数据库
+neo4j:
+  graph:
+    enabled: ${NEO4J_ENABLED:true}
+    uri: ${NEO4J_URI:}
+    username: ${NEO4J_USERNAME:}
+    password: ${NEO4J_PASSWORD:}
+    database: ${NEO4J_DATABASE:neo4j}
+
+# SpringDoc 接口文档 (引擎) + Knife4j (前端 UI)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+knife4j:
+  enable: false
+
+# 火山引擎 - Ark双模型 + 流式ASR
+volcengine:
+  ark:
+    base-url: ${VOLCENGINE_ARK_BASE_URL:https://ark.cn-beijing.volces.com}
+    api-key: ${VOLCENGINE_ARK_API_KEY:}
+    model: ${VOLCENGINE_ARK_MODEL:doubao-seed-2-1-pro-260628}
+    vision-model: ${VOLCENGINE_ARK_VISION_MODEL:doubao-seed-2-1-turbo-260628}
+  asr:
+    ws-url: ${VOLCENGINE_ASR_WS_URL:wss://openspeech.bytedance.com/api/v3/sauc/bigmodel_async}
+    app-id: ${VOLCENGINE_ASR_APP_ID:}
+    access-key: ${VOLCENGINE_ASR_ACCESS_KEY:}
+    api-key: ${VOLCENGINE_ASR_API_KEY:}
+    resource-id: ${VOLCENGINE_ASR_RESOURCE_ID:volc.seedasr.sauc.duration}
+    question-duration-easy: ${INTERVIEW_QUESTION_DURATION_EASY:30}
+    question-duration-medium: ${INTERVIEW_QUESTION_DURATION_MEDIUM:60}
+    question-duration-hard: ${INTERVIEW_QUESTION_DURATION_HARD:90}
+
+video-interview:
+  visual-analysis-timeout-seconds: ${VIDEO_INTERVIEW_VISUAL_ANALYSIS_TIMEOUT_SECONDS:180}
+  visual-analysis-max-questions: ${VIDEO_INTERVIEW_VISUAL_ANALYSIS_MAX_QUESTIONS:6}
+
+# Logging
+logging:
+  level:
+    root: warn
+    com.example.matching: info
+    org.springframework: warn
+    org.mybatis: warn
+    com.baomidou.mybatisplus: warn
+    # Milvus SDK 在 RPC 失败（连接被服务端回收）时无条件打印 ERROR 堆栈，
+    # 属于已知降级路径（MilvusRagVectorStore 已捕获并走 MySQL 兜底），静音避免误报
+    io.milvus: OFF
+
+# Resilience4j 熔断降级配置
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+    instances:
+      aiService:
+        base-config: default
+  retry:
+    configs:
+      default:
+        max-attempts: 3
+        wait-duration: 500ms
+        retry-exceptions:
+          - java.net.SocketTimeoutException
+          - java.io.IOException
+    instances:
+      aiService:
+        base-config: default
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 300s
+    instances:
+      aiService:
+        base-config: default
+
+# Prompt A/B 实验配置（总开关 enabled=false 时全部停用）
+prompt:
+  ab:
+    enabled: false
+
+# AI 总开关：false 时全部 AI 文本服务确定性降级，应用不启动失败
+ai:
+  enabled: true
+  request-timeout-seconds: ${AI_REQUEST_TIMEOUT_SECONDS:300}
+  # Shared provider boundary for all enterprise text-model calls. It protects
+  # concurrency-sensitive gateways without changing any business workflow.
+  provider:
+    max-concurrency: ${AI_PROVIDER_MAX_CONCURRENCY:2}
+    acquire-timeout-millis: ${AI_PROVIDER_ACQUIRE_TIMEOUT_MILLIS:5000}
+    retry:
+      max-attempts: ${AI_PROVIDER_RETRY_MAX_ATTEMPTS:3}
+      base-backoff-millis: ${AI_PROVIDER_RETRY_BASE_BACKOFF_MILLIS:1000}
+  scoring:
+    recovery-timeout-minutes: 30
+  test:
+    question-count: 5
+    request-timeout-seconds: ${AI_TEST_REQUEST_TIMEOUT_SECONDS:${AI_REQUEST_TIMEOUT_SECONDS:300}}
+
+# LangChain4j Embedding（向量化）HTTP 加固：增大单次请求超时与重试次数，
+# 缓解网关侧超时断连（Connection reset）导致的向量化失败
+langchain4j:
+  embedding:
+    timeout-seconds: ${EMBEDDING_TIMEOUT_SECONDS:120}
+    max-retries: ${EMBEDDING_MAX_RETRIES:5}
+  agents:
+    enabled: ${LANGCHAIN4J_AGENTS_ENABLED:false}
+    base-url: ${LANGCHAIN4J_BASE_URL:}
+    api-key: ${LANGCHAIN4J_API_KEY:}
+    model-name: ${LANGCHAIN4J_MODEL_NAME:deepseek-chat}
+    temperature: ${LANGCHAIN4J_TEMPERATURE:0.1}
+    timeout-seconds: ${LANGCHAIN4J_TIMEOUT_SECONDS:300}
+    max-retries: ${LANGCHAIN4J_MAX_RETRIES:1}
+    parallel-tool-calls: ${LANGCHAIN4J_PARALLEL_TOOL_CALLS:true}
+    max-tool-calls-per-request: ${LANGCHAIN4J_MAX_TOOL_CALLS_PER_REQUEST:20}
+    tool-execution-timeout-seconds: ${LANGCHAIN4J_TOOL_EXECUTION_TIMEOUT_SECONDS:300}
+    log-requests: ${LANGCHAIN4J_LOG_REQUESTS:false}
+    log-responses: ${LANGCHAIN4J_LOG_RESPONSES:false}
+
+# PMS 数据源为可选只读集成；不配置时 PMS 功能自动降级。
+pms:
+  datasource:
+    url: ${PMS_DB_URL:}
+    username: ${PMS_DB_USERNAME:}
+    password: ${PMS_DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# RAG 上下文配置
+rag:
+  context:
+    max-chunks: 8
+    max-estimated-tokens: 3500
+
+# 语义匹配分配策略：小规模矩阵使用 Hungarian 全局最优，超过阈值走贪心近似
+matching:
+  semantic-assignment:
+    hungarian-max-dimension: 100
+
+# DLQ 深度告警阈值（超过则记录结构化 ERROR 并写系统操作日志）
+app:
+  security:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
+    allowed-headers: ${ALLOWED_HEADERS:Authorization,Content-Type,X-Requested-With,X-Trace-Id,Idempotency-Key}
+  scheduler:
+    pool-size: 8
+    error-log-stacktrace: true
+  dlq:
+    alert-threshold: 20
+  # Agent 记忆（HR 修正累积的人员能力提取偏好）全局总开关
+  agent-memory:
+    enabled: true
+
+# 市场JD能力自动准入（Market JD Capability Auto-Admission）
+# 默认值即生产初始值；通过配置（而非代码）调整
+market-jd:
+  capability-admission:
+    enabled: true
+    direct-evidence-auto-admit: true
+    semantic-recommendation-min-score: 0.88
+    harness-batch-size: 50
+    harness-retry-count: 1
+    new-ability-min-jd-count: 3
+    new-ability-min-company-count: 2
+    new-ability-pass-min-score: 80
+    review-max-groups-per-batch: 20
+
+# 知乎外部趋势资源：仅用于岗位演化/解释辅助，不进入 JD 事实或证据链
+zhihu:
+  api:
+    enabled: ${ZHIHU_ENABLED:false}
+    base-url: ${ZHIHU_API_BASE_URL:https://developer.zhihu.com}
+    access-secret: ${ZHIHU_ACCESS_SECRET:}
+    connect-timeout-millis: ${ZHIHU_CONNECT_TIMEOUT_MILLIS:5000}
+    read-timeout-millis: ${ZHIHU_READ_TIMEOUT_MILLIS:15000}
+    max-query-length: ${ZHIHU_MAX_QUERY_LENGTH:200}
+    max-retries: ${ZHIHU_MAX_RETRIES:2}
+    retry-backoff-millis: ${ZHIHU_RETRY_BACKOFF_MILLIS:150}
+    cache-ttl-seconds: ${ZHIHU_CACHE_TTL_SECONDS:30}

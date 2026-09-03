@@ -1,0 +1,72 @@
+[
+  {
+    "caseId": "SCAN-001",
+    "format": "SCAN_PDF",
+    "file": "data/resumes/scan/scan-resume-001.pdf",
+    "expectedSkills": [
+      "Spark",
+      "Flink",
+      "Hive",
+      "Kafka",
+      "Scala"
+    ],
+    "threshold": 0.9,
+    "note": "图片型扫描件（无文本层），验证百度 OCR 回退链路；授权合成样本"
+  },
+  {
+    "caseId": "SCAN-002",
+    "format": "SCAN_PDF",
+    "file": "data/resumes/scan/scan-resume-002.pdf",
+    "expectedSkills": [
+      "Python",
+      "TensorFlow",
+      "目标检测",
+      "模型量化",
+      "CUDA"
+    ],
+    "threshold": 0.9,
+    "note": "图片型扫描件（无文本层），验证百度 OCR 回退链路；授权合成样本"
+  },
+  {
+    "caseId": "SCAN-003",
+    "format": "SCAN_PDF",
+    "file": "data/resumes/scan/scan-resume-003.pdf",
+    "expectedSkills": [
+      "嵌入式C",
+      "FreeRTOS",
+      "MQTT",
+      "STM32",
+      "低功耗"
+    ],
+    "threshold": 0.9,
+    "note": "图片型扫描件（无文本层），验证百度 OCR 回退链路；授权合成样本"
+  },
+  {
+    "caseId": "SCAN-004",
+    "format": "SCAN_PDF",
+    "file": "data/resumes/scan/scan-resume-004.pdf",
+    "expectedSkills": [
+      "Java",
+      "Spring Cloud",
+      "MySQL",
+      "Redis",
+      "微服务"
+    ],
+    "threshold": 0.9,
+    "note": "图片型扫描件（无文本层），验证百度 OCR 回退链路；授权合成样本"
+  },
+  {
+    "caseId": "SCAN-005",
+    "format": "SCAN_PDF",
+    "file": "data/resumes/scan/scan-resume-005.pdf",
+    "expectedSkills": [
+      "Python",
+      "LangChain",
+      "RAG",
+      "Prompt工程",
+      "Docker"
+    ],
+    "threshold": 0.9,
+    "note": "图片型扫描件（无文本层），验证百度 OCR 回退链路；授权合成样本"
+  }
+]

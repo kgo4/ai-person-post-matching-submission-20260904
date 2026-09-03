@@ -1,0 +1,41 @@
+{
+  "evaluatedAt": "2026-09-04",
+  "realCorpusCleanliness": {
+    "total": 100,
+    "noiseHits": 0,
+    "duplicatePairs": 0,
+    "inflationHits": 0,
+    "outdatedHits": 0,
+    "allPass": true,
+    "samePostSimilarity": {
+      "pairs": 200,
+      "maxJaccard": 0.477
+    },
+    "crossPostSimilarity": {
+      "pairs": 4950,
+      "maxJaccard": 0.719
+    }
+  },
+  "injectionDetection": {
+    "noise": {
+      "injected": 12,
+      "detected": 12
+    },
+    "duplicatePairs": {
+      "injected": 15,
+      "detected": 15
+    },
+    "inflation": {
+      "injected": 10,
+      "detected": 10
+    },
+    "outdated": {
+      "injected": 15,
+      "detected": 15
+    },
+    "staleness": {
+      "injected": 10,
+      "detected": 10
+    }
+  }
+}

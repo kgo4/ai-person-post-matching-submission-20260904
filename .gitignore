@@ -1,0 +1,89 @@
+# ============================================
+# Root .gitignore — AI Person-Post Matching
+# ============================================
+
+# ----- OS -----
+.DS_Store
+Thumbs.db
+desktop.ini
+nul
+
+# ----- IDE -----
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# ----- Claude Code local settings -----
+.claude/settings.local.json
+
+# ----- Environment / Secrets -----
+.env
+.env.local
+.env.*.local
+certs/
+
+# ----- Logs -----
+logs/
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# ----- Java / Maven -----
+*.class
+*.jar
+*.war
+*.ear
+target/
+backend/.m2/
+backend/.mvn/
+
+# ----- Node / Frontend -----
+node_modules/
+dist/
+dist-ssr/
+frontend/.env.local
+frontend/.env.*.local
+
+# ----- Uploads & Runtime Data -----
+uploads/
+runtime/
+
+# ----- Database Dumps (keep .sql in docs/ only) -----
+/hrms_db.sql
+/pms.sql
+
+# ----- Docs -----
+docs/
+*.docx
+*.pptx
+*.xlsx
+*.pdf
+
+# ----- Docker volumes -----
+docker-data/
+
+# ----- Spring Boot -----
+*.pid
+
+# ----- Reasonix 工具运行时数据 -----
+.reasonix/
+reasonix.toml
+
+# ----- 临时产物（API 冒烟测试、classpath dump、编译产物）-----
+org/
+backend/cp.txt
+/package-lock.json
+
+# ----- 发布包、预览与本地工作区 -----
+*.tgz
+*.tar
+*.tar.gz
+*.zip
+.preview/
+.tmp_*/
+.workbuddy/
+tmp/
+release-staging-*/

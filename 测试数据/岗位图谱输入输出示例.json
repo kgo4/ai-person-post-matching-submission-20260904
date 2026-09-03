@@ -1,0 +1,88 @@
+{
+ "newPost": {
+  "input": {
+   "source": "行业JD + 行业白皮书 + 知乎趋势",
+   "signals": [
+    "市场 JD 片段：负责边缘设备上的模型推理优化，熟悉模型压缩与量化，部署至端侧设备",
+    "行业白皮书摘要：边缘侧实时推理需求上升，TensorRT 推理优化成为热点能力方向",
+    "知乎趋势关键词：边缘推理、模型量化、端侧部署"
+   ]
+  },
+  "output": {
+   "post": {
+    "title": "边缘智能推理工程师",
+    "description": "面向边缘侧实时推理场景，负责模型压缩、推理优化与端侧部署",
+    "domain": "物联网 × 人工智能",
+    "level": "中级"
+   },
+   "nodes": [
+    {
+     "type": "POST",
+     "label": "边缘智能推理工程师"
+    },
+    {
+     "type": "SKILL",
+     "label": "模型压缩"
+    },
+    {
+     "type": "SKILL",
+     "label": "TensorRT推理优化"
+    },
+    {
+     "type": "SKILL",
+     "label": "边缘设备部署"
+    },
+    {
+     "type": "SKILL",
+     "label": "性能监控"
+    }
+   ],
+   "edges": [
+    "REQUIRES"
+   ]
+  }
+ },
+ "existingPost": {
+  "input": {
+   "title": "Java后端开发工程师",
+   "skills": [
+    "Java",
+    "Spring Boot",
+    "MySQL",
+    "Redis",
+    "Kafka"
+   ]
+  },
+  "output": {
+   "nodes": [
+    {
+     "type": "POST",
+     "label": "Java后端开发工程师"
+    },
+    {
+     "type": "SKILL",
+     "label": "Java"
+    },
+    {
+     "type": "SKILL",
+     "label": "Spring Boot"
+    },
+    {
+     "type": "SKILL",
+     "label": "MySQL"
+    },
+    {
+     "type": "SKILL",
+     "label": "Redis"
+    },
+    {
+     "type": "SKILL",
+     "label": "Kafka"
+    }
+   ],
+   "edges": [
+    "REQUIRES"
+   ]
+  }
+ }
+}

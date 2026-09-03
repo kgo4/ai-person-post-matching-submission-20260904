@@ -1,0 +1,40 @@
+# Local development configuration. Sensitive values are supplied through the
+# environment (or an IDE run configuration), never committed to this file.
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  flyway:
+    enabled: false
+
+  freemarker:
+    check-template-location: true
+
+  mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    listener:
+      auto-startup: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+logging:
+  level:
+    root: warn
+    com.example.matching: info
+    org.springframework: warn
+    org.mybatis: warn
+    com.baomidou.mybatisplus: warn
+    io.milvus: OFF

@@ -1,0 +1,620 @@
+{
+  "evaluatedAt": "2026-09-04",
+  "jdCases": {
+    "total": 100,
+    "titleExactAligned": 100,
+    "titleExactAlignedRate": 1.0,
+    "mustSkillsSubsetAligned": 100,
+    "mustSkillsSubsetAlignedRate": 1.0,
+    "assertionFieldsComplete": 100,
+    "assertionFieldsCompleteRate": 1.0
+  },
+  "resumeCases": {
+    "total": 20,
+    "formatPdfDocxCovered": 20,
+    "thresholdGte90": 20,
+    "expectedSkillsPresent": 20
+  },
+  "details": [
+    {
+      "caseId": "JD-PARSE-001",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-002",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-003",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-004",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-005",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-006",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-007",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-008",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-009",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-010",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-011",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-012",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-013",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-014",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-015",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-016",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-017",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-018",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-019",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-020",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-021",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-022",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-023",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-024",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-025",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-026",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-027",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-028",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-029",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-030",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-031",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-032",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-033",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-034",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-035",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-036",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-037",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-038",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-039",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-040",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-041",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-042",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-043",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-044",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-045",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-046",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-047",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-048",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-049",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-050",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-051",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-052",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-053",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-054",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-055",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-056",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-057",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-058",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-059",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-060",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-061",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-062",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-063",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-064",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-065",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-066",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-067",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-068",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-069",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-070",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-071",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-072",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-073",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-074",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-075",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-076",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-077",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-078",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-079",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-080",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-081",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-082",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-083",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-084",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-085",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-086",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-087",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-088",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-089",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-090",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-091",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-092",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-093",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-094",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-095",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-096",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-097",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-098",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-099",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    },
+    {
+      "caseId": "JD-PARSE-100",
+      "titleAligned": true,
+      "skillAligned": true,
+      "assertionFieldsComplete": true
+    }
+  ]
+}

@@ -1,0 +1,1642 @@
+[
+  {
+    "caseId": "JD-PARSE-001",
+    "inputId": "JD-001",
+    "assertions": {
+      "jobTitle": "人工智能算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-002",
+    "inputId": "JD-002",
+    "assertions": {
+      "jobTitle": "大数据数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-003",
+    "inputId": "JD-003",
+    "assertions": {
+      "jobTitle": "智能系统平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-004",
+    "inputId": "JD-004",
+    "assertions": {
+      "jobTitle": "物联网智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-005",
+    "inputId": "JD-005",
+    "assertions": {
+      "jobTitle": "人工智能物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-006",
+    "inputId": "JD-006",
+    "assertions": {
+      "jobTitle": "大数据机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-007",
+    "inputId": "JD-007",
+    "assertions": {
+      "jobTitle": "智能系统数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-008",
+    "inputId": "JD-008",
+    "assertions": {
+      "jobTitle": "物联网边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-009",
+    "inputId": "JD-009",
+    "assertions": {
+      "jobTitle": "人工智能智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-010",
+    "inputId": "JD-010",
+    "assertions": {
+      "jobTitle": "大数据知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-011",
+    "inputId": "JD-011",
+    "assertions": {
+      "jobTitle": "智能系统算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-012",
+    "inputId": "JD-012",
+    "assertions": {
+      "jobTitle": "物联网数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-013",
+    "inputId": "JD-013",
+    "assertions": {
+      "jobTitle": "人工智能平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-014",
+    "inputId": "JD-014",
+    "assertions": {
+      "jobTitle": "大数据智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-015",
+    "inputId": "JD-015",
+    "assertions": {
+      "jobTitle": "智能系统物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-016",
+    "inputId": "JD-016",
+    "assertions": {
+      "jobTitle": "物联网机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-017",
+    "inputId": "JD-017",
+    "assertions": {
+      "jobTitle": "人工智能数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-018",
+    "inputId": "JD-018",
+    "assertions": {
+      "jobTitle": "大数据边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-019",
+    "inputId": "JD-019",
+    "assertions": {
+      "jobTitle": "智能系统智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-020",
+    "inputId": "JD-020",
+    "assertions": {
+      "jobTitle": "物联网知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-021",
+    "inputId": "JD-021",
+    "assertions": {
+      "jobTitle": "人工智能算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-022",
+    "inputId": "JD-022",
+    "assertions": {
+      "jobTitle": "大数据数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-023",
+    "inputId": "JD-023",
+    "assertions": {
+      "jobTitle": "智能系统平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-024",
+    "inputId": "JD-024",
+    "assertions": {
+      "jobTitle": "物联网智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-025",
+    "inputId": "JD-025",
+    "assertions": {
+      "jobTitle": "人工智能物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-026",
+    "inputId": "JD-026",
+    "assertions": {
+      "jobTitle": "大数据机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-027",
+    "inputId": "JD-027",
+    "assertions": {
+      "jobTitle": "智能系统数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-028",
+    "inputId": "JD-028",
+    "assertions": {
+      "jobTitle": "物联网边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-029",
+    "inputId": "JD-029",
+    "assertions": {
+      "jobTitle": "人工智能智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-030",
+    "inputId": "JD-030",
+    "assertions": {
+      "jobTitle": "大数据知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-031",
+    "inputId": "JD-031",
+    "assertions": {
+      "jobTitle": "智能系统算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-032",
+    "inputId": "JD-032",
+    "assertions": {
+      "jobTitle": "物联网数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-033",
+    "inputId": "JD-033",
+    "assertions": {
+      "jobTitle": "人工智能平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-034",
+    "inputId": "JD-034",
+    "assertions": {
+      "jobTitle": "大数据智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-035",
+    "inputId": "JD-035",
+    "assertions": {
+      "jobTitle": "智能系统物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-036",
+    "inputId": "JD-036",
+    "assertions": {
+      "jobTitle": "物联网机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-037",
+    "inputId": "JD-037",
+    "assertions": {
+      "jobTitle": "人工智能数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-038",
+    "inputId": "JD-038",
+    "assertions": {
+      "jobTitle": "大数据边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-039",
+    "inputId": "JD-039",
+    "assertions": {
+      "jobTitle": "智能系统智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-040",
+    "inputId": "JD-040",
+    "assertions": {
+      "jobTitle": "物联网知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-041",
+    "inputId": "JD-041",
+    "assertions": {
+      "jobTitle": "人工智能算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-042",
+    "inputId": "JD-042",
+    "assertions": {
+      "jobTitle": "大数据数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-043",
+    "inputId": "JD-043",
+    "assertions": {
+      "jobTitle": "智能系统平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-044",
+    "inputId": "JD-044",
+    "assertions": {
+      "jobTitle": "物联网智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-045",
+    "inputId": "JD-045",
+    "assertions": {
+      "jobTitle": "人工智能物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-046",
+    "inputId": "JD-046",
+    "assertions": {
+      "jobTitle": "大数据机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-047",
+    "inputId": "JD-047",
+    "assertions": {
+      "jobTitle": "智能系统数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-048",
+    "inputId": "JD-048",
+    "assertions": {
+      "jobTitle": "物联网边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-049",
+    "inputId": "JD-049",
+    "assertions": {
+      "jobTitle": "人工智能智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-050",
+    "inputId": "JD-050",
+    "assertions": {
+      "jobTitle": "大数据知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-051",
+    "inputId": "JD-051",
+    "assertions": {
+      "jobTitle": "智能系统算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-052",
+    "inputId": "JD-052",
+    "assertions": {
+      "jobTitle": "物联网数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-053",
+    "inputId": "JD-053",
+    "assertions": {
+      "jobTitle": "人工智能平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-054",
+    "inputId": "JD-054",
+    "assertions": {
+      "jobTitle": "大数据智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-055",
+    "inputId": "JD-055",
+    "assertions": {
+      "jobTitle": "智能系统物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-056",
+    "inputId": "JD-056",
+    "assertions": {
+      "jobTitle": "物联网机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-057",
+    "inputId": "JD-057",
+    "assertions": {
+      "jobTitle": "人工智能数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-058",
+    "inputId": "JD-058",
+    "assertions": {
+      "jobTitle": "大数据边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-059",
+    "inputId": "JD-059",
+    "assertions": {
+      "jobTitle": "智能系统智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-060",
+    "inputId": "JD-060",
+    "assertions": {
+      "jobTitle": "物联网知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-061",
+    "inputId": "JD-061",
+    "assertions": {
+      "jobTitle": "人工智能算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-062",
+    "inputId": "JD-062",
+    "assertions": {
+      "jobTitle": "大数据数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-063",
+    "inputId": "JD-063",
+    "assertions": {
+      "jobTitle": "智能系统平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-064",
+    "inputId": "JD-064",
+    "assertions": {
+      "jobTitle": "物联网智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-065",
+    "inputId": "JD-065",
+    "assertions": {
+      "jobTitle": "人工智能物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-066",
+    "inputId": "JD-066",
+    "assertions": {
+      "jobTitle": "大数据机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-067",
+    "inputId": "JD-067",
+    "assertions": {
+      "jobTitle": "智能系统数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-068",
+    "inputId": "JD-068",
+    "assertions": {
+      "jobTitle": "物联网边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-069",
+    "inputId": "JD-069",
+    "assertions": {
+      "jobTitle": "人工智能智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-070",
+    "inputId": "JD-070",
+    "assertions": {
+      "jobTitle": "大数据知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-071",
+    "inputId": "JD-071",
+    "assertions": {
+      "jobTitle": "智能系统算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-072",
+    "inputId": "JD-072",
+    "assertions": {
+      "jobTitle": "物联网数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-073",
+    "inputId": "JD-073",
+    "assertions": {
+      "jobTitle": "人工智能平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-074",
+    "inputId": "JD-074",
+    "assertions": {
+      "jobTitle": "大数据智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-075",
+    "inputId": "JD-075",
+    "assertions": {
+      "jobTitle": "智能系统物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-076",
+    "inputId": "JD-076",
+    "assertions": {
+      "jobTitle": "物联网机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-077",
+    "inputId": "JD-077",
+    "assertions": {
+      "jobTitle": "人工智能数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-078",
+    "inputId": "JD-078",
+    "assertions": {
+      "jobTitle": "大数据边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-079",
+    "inputId": "JD-079",
+    "assertions": {
+      "jobTitle": "智能系统智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-080",
+    "inputId": "JD-080",
+    "assertions": {
+      "jobTitle": "物联网知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-081",
+    "inputId": "JD-081",
+    "assertions": {
+      "jobTitle": "人工智能算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-082",
+    "inputId": "JD-082",
+    "assertions": {
+      "jobTitle": "大数据数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-083",
+    "inputId": "JD-083",
+    "assertions": {
+      "jobTitle": "智能系统平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-084",
+    "inputId": "JD-084",
+    "assertions": {
+      "jobTitle": "物联网智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-085",
+    "inputId": "JD-085",
+    "assertions": {
+      "jobTitle": "人工智能物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-086",
+    "inputId": "JD-086",
+    "assertions": {
+      "jobTitle": "大数据机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-087",
+    "inputId": "JD-087",
+    "assertions": {
+      "jobTitle": "智能系统数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-088",
+    "inputId": "JD-088",
+    "assertions": {
+      "jobTitle": "物联网边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-089",
+    "inputId": "JD-089",
+    "assertions": {
+      "jobTitle": "人工智能智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-090",
+    "inputId": "JD-090",
+    "assertions": {
+      "jobTitle": "大数据知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-091",
+    "inputId": "JD-091",
+    "assertions": {
+      "jobTitle": "智能系统算法工程师",
+      "mustSkills": [
+        "Python",
+        "PyTorch",
+        "模型训练与评测"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-092",
+    "inputId": "JD-092",
+    "assertions": {
+      "jobTitle": "物联网数据工程师",
+      "mustSkills": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "微服务"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-093",
+    "inputId": "JD-093",
+    "assertions": {
+      "jobTitle": "人工智能平台开发工程师",
+      "mustSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "数据仓库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-094",
+    "inputId": "JD-094",
+    "assertions": {
+      "jobTitle": "大数据智能系统工程师",
+      "mustSkills": [
+        "C++",
+        "ROS2",
+        "Linux",
+        "实时控制"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-095",
+    "inputId": "JD-095",
+    "assertions": {
+      "jobTitle": "智能系统物联网解决方案工程师",
+      "mustSkills": [
+        "MQTT",
+        "边缘网关",
+        "时序数据库"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-096",
+    "inputId": "JD-096",
+    "assertions": {
+      "jobTitle": "物联网机器学习工程师",
+      "mustSkills": [
+        "RAG",
+        "向量数据库",
+        "LLM应用开发"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-097",
+    "inputId": "JD-097",
+    "assertions": {
+      "jobTitle": "人工智能数据治理工程师",
+      "mustSkills": [
+        "TensorFlow",
+        "Kubeflow",
+        "MLOps"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-098",
+    "inputId": "JD-098",
+    "assertions": {
+      "jobTitle": "大数据边缘计算工程师",
+      "mustSkills": [
+        "Flink CDC",
+        "ClickHouse",
+        "数据质量"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-099",
+    "inputId": "JD-099",
+    "assertions": {
+      "jobTitle": "智能系统智能制造工程师",
+      "mustSkills": [
+        "C++",
+        "CUDA",
+        "TensorRT",
+        "推理优化"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  },
+  {
+    "caseId": "JD-PARSE-100",
+    "inputId": "JD-100",
+    "assertions": {
+      "jobTitle": "物联网知识图谱工程师",
+      "mustSkills": [
+        "Java",
+        "Neo4j",
+        "图谱构建"
+      ],
+      "minPrecision": 0.9,
+      "minRecall": 0.9,
+      "noiseScoreBelow70": true
+    },
+    "expected": "进入岗位能力表并生成技能点；来源、去重、噪声统计可追溯"
+  }
+]

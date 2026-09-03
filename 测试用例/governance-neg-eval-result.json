@@ -1,0 +1,31 @@
+{
+  "evaluatedAt": "2026-09-03",
+  "method": "30 条干净 JD（无噪声标记、无重复文本、技能数 5-12、无过时技术、发布时间新鲜）按系统规则检测",
+  "negativeControl": {
+    "total": 30,
+    "noiseFalsePositive": {
+      "count": 0,
+      "ids": []
+    },
+    "duplicateFalsePositive": {
+      "pairs": 0,
+      "ids": []
+    },
+    "inflationFalsePositive": {
+      "count": 0,
+      "ids": []
+    },
+    "outdatedFalsePositive": {
+      "count": 0,
+      "ids": []
+    },
+    "stalenessFalsePositive": {
+      "count": 0,
+      "ids": []
+    }
+  },
+  "conclusion": {
+    "anyFalsePositive": false,
+    "summary": "阴性对照 30 条干净 JD 全部无误报，阈值在干净样本与缺陷注入样本双侧调参下未发生误杀"
+  }
+}

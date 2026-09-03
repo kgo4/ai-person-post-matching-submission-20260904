@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "purpose": "评测对齐同义词表：系统输出的技能名经归一化后，命中同义映射即视为同一技能项。供 accuracy_eval.py 对齐规则与人工复核使用。",
+  "synonyms": [
+    {"canonical": "PyTorch", "aliases": ["PyTorch框架", "PyTorch 深度学习框架", "Pytorch"]},
+    {"canonical": "TensorFlow", "aliases": ["TensorFlow框架", "Tensorflow"]},
+    {"canonical": "模型训练与评测", "aliases": ["模型训练", "模型评测", "模型训练及评测"]},
+    {"canonical": "向量数据库", "aliases": ["向量检索", "Milvus", "向量库"]},
+    {"canonical": "图谱构建", "aliases": ["知识图谱构建", "图谱建模"]},
+    {"canonical": "推理优化", "aliases": ["模型推理优化", "推理性能优化"]},
+    {"canonical": "RAG", "aliases": ["检索增强生成", "RAG检索"]},
+    {"canonical": "LLM应用开发", "aliases": ["大模型应用开发", "LLM 应用开发"]},
+    {"canonical": "MLOps", "aliases": ["ML工程化", "机器学习运维"]},
+    {"canonical": "监控告警", "aliases": ["监控", "告警", "系统监控"]},
+    {"canonical": "边缘网关", "aliases": ["边缘计算网关", "边缘网关设备"]},
+    {"canonical": "微服务", "aliases": ["微服务架构", "微服务开发"]},
+    {"canonical": "数据仓库", "aliases": ["数仓", "数据仓库建设"]},
+    {"canonical": "实时控制", "aliases": ["实时控制算法", "实时控制系统"]},
+    {"canonical": "CUDA", "aliases": ["CUDA编程", "CUDA 并行计算"]},
+    {"canonical": "Kafka", "aliases": ["Kafka消息队列", "Apache Kafka"]}
+  ],
+  "normalization": {
+    "stripWhitespace": true,
+    "unifyCase": true,
+    "stripSuffix": ["框架", "技术", "工具", "开发"]
+  }
+}

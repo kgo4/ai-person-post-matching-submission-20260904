@@ -1,0 +1,124 @@
+{
+  "evaluatedAt": "2026-09-04",
+  "method": "图片型 PDF(无文本层) → RapidOCR 本地实测 → 期望技能名词定位",
+  "note": "OCR 负责读出文字；技能项归一化（如 模型剪枝与量化→模型量化）由 LLM 抽取环节承担，见 5.2",
+  "sampleCount": 5,
+  "perCase": [
+    {
+      "caseId": "SCAN-001",
+      "ocrEngine": "RapidOCR(onnx) local",
+      "avgConfidence": 0.847,
+      "expectedSkills": [
+        "Spark",
+        "Flink",
+        "Hive",
+        "Kafka",
+        "Scala"
+      ],
+      "located": {
+        "Spark": "direct",
+        "Flink": "direct",
+        "Hive": "direct",
+        "Kafka": "direct",
+        "Scala": "direct"
+      },
+      "directHits": 5,
+      "mappedHits": 0,
+      "skillRecall": 1.0
+    },
+    {
+      "caseId": "SCAN-002",
+      "ocrEngine": "RapidOCR(onnx) local",
+      "avgConfidence": 0.857,
+      "expectedSkills": [
+        "Python",
+        "TensorFlow",
+        "目标检测",
+        "模型量化",
+        "CUDA"
+      ],
+      "located": {
+        "Python": "direct",
+        "TensorFlow": "direct",
+        "目标检测": "direct",
+        "模型量化": null,
+        "CUDA": "direct"
+      },
+      "directHits": 4,
+      "mappedHits": 0,
+      "skillRecall": 0.8
+    },
+    {
+      "caseId": "SCAN-003",
+      "ocrEngine": "RapidOCR(onnx) local",
+      "avgConfidence": 0.861,
+      "expectedSkills": [
+        "嵌入式C",
+        "FreeRTOS",
+        "MQTT",
+        "STM32",
+        "低功耗"
+      ],
+      "located": {
+        "嵌入式C": "direct",
+        "FreeRTOS": "direct",
+        "MQTT": "direct",
+        "STM32": "direct",
+        "低功耗": "direct"
+      },
+      "directHits": 5,
+      "mappedHits": 0,
+      "skillRecall": 1.0
+    },
+    {
+      "caseId": "SCAN-004",
+      "ocrEngine": "RapidOCR(onnx) local",
+      "avgConfidence": 0.856,
+      "expectedSkills": [
+        "Java",
+        "Spring Cloud",
+        "MySQL",
+        "Redis",
+        "微服务"
+      ],
+      "located": {
+        "Java": "direct",
+        "Spring Cloud": "direct",
+        "MySQL": "direct",
+        "Redis": "direct",
+        "微服务": "direct"
+      },
+      "directHits": 5,
+      "mappedHits": 0,
+      "skillRecall": 1.0
+    },
+    {
+      "caseId": "SCAN-005",
+      "ocrEngine": "RapidOCR(onnx) local",
+      "avgConfidence": 0.828,
+      "expectedSkills": [
+        "Python",
+        "LangChain",
+        "RAG",
+        "Prompt工程",
+        "Docker"
+      ],
+      "located": {
+        "Python": "direct",
+        "LangChain": "direct",
+        "RAG": "direct",
+        "Prompt工程": "direct",
+        "Docker": "direct"
+      },
+      "directHits": 5,
+      "mappedHits": 0,
+      "skillRecall": 1.0
+    }
+  ],
+  "overall": {
+    "avgSkillRecall": 0.96,
+    "mappedViaOcrCharFix": [],
+    "meetsThreshold_0_9": true,
+    "conclusion": "5 份图片型扫描件 OCR 实测：技能名词定位平均 96.0%（含 OCR 字符混淆映射），OCR 回退链路可读性成立"
+  }
+}

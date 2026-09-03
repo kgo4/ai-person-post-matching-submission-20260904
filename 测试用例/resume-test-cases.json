@@ -1,0 +1,210 @@
+[
+  {
+    "caseId": "RESUME-001",
+    "format": "PDF",
+    "expectedSkills": [
+      "Python",
+      "PyTorch",
+      "模型训练与评测"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-002",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Java",
+      "Spring Boot",
+      "Kafka",
+      "微服务"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-003",
+    "format": "PDF",
+    "expectedSkills": [
+      "Spark",
+      "Flink",
+      "Hive",
+      "数据仓库"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-004",
+    "format": "DOCX",
+    "expectedSkills": [
+      "C++",
+      "ROS2",
+      "Linux",
+      "实时控制"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-005",
+    "format": "PDF",
+    "expectedSkills": [
+      "MQTT",
+      "边缘网关",
+      "时序数据库"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-006",
+    "format": "DOCX",
+    "expectedSkills": [
+      "RAG",
+      "向量数据库",
+      "LLM应用开发"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-007",
+    "format": "PDF",
+    "expectedSkills": [
+      "TensorFlow",
+      "Kubeflow",
+      "MLOps"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-008",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Flink CDC",
+      "ClickHouse",
+      "数据质量"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-009",
+    "format": "PDF",
+    "expectedSkills": [
+      "C++",
+      "CUDA",
+      "TensorRT",
+      "推理优化"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-010",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Java",
+      "Neo4j",
+      "图谱构建"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-011",
+    "format": "PDF",
+    "expectedSkills": [
+      "Python",
+      "PyTorch",
+      "模型训练与评测"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-012",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Java",
+      "Spring Boot",
+      "Kafka",
+      "微服务"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-013",
+    "format": "PDF",
+    "expectedSkills": [
+      "Spark",
+      "Flink",
+      "Hive",
+      "数据仓库"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-014",
+    "format": "DOCX",
+    "expectedSkills": [
+      "C++",
+      "ROS2",
+      "Linux",
+      "实时控制"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-015",
+    "format": "PDF",
+    "expectedSkills": [
+      "MQTT",
+      "边缘网关",
+      "时序数据库"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-016",
+    "format": "DOCX",
+    "expectedSkills": [
+      "RAG",
+      "向量数据库",
+      "LLM应用开发"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-017",
+    "format": "PDF",
+    "expectedSkills": [
+      "TensorFlow",
+      "Kubeflow",
+      "MLOps"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-018",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Flink CDC",
+      "ClickHouse",
+      "数据质量"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-019",
+    "format": "PDF",
+    "expectedSkills": [
+      "C++",
+      "CUDA",
+      "TensorRT",
+      "推理优化"
+    ],
+    "threshold": 0.9
+  },
+  {
+    "caseId": "RESUME-020",
+    "format": "DOCX",
+    "expectedSkills": [
+      "Java",
+      "Neo4j",
+      "图谱构建"
+    ],
+    "threshold": 0.9
+  }
+]

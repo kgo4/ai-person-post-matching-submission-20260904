@@ -1,0 +1,145 @@
+package com.example.matching.agent.service.impl;
+
+import com.example.matching.agent.config.LangChain4jAgentProperties;
+import com.example.matching.agent.dto.AgentContextPackage;
+import com.example.matching.agent.dto.MatchingAnalysisAgentRequest;
+import com.example.matching.agent.dto.MatchingAnalysisAgentResult;
+import com.example.matching.agent.lc4j.MatchingAnalysisAiService;
+import com.example.matching.agent.service.AgentContextPackageService;
+import com.example.matching.agent.service.AgentFallbackService;
+import com.example.matching.dto.kg.context.GraphContextStatus;
+import com.example.matching.dto.kg.context.GraphMatchContext;
+import com.example.matching.infrastructure.llm.LlmResponseParser;
+import com.example.matching.service.kg.KnowledgeGraphQueryService;
+import com.example.matching.service.rag.RagContextService;
+import com.example.matching.service.rag.RagScenarioEnum;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.springframework.beans.factory.ObjectProvider;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.ArgumentMatchers.contains;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
+
+class MatchingAnalysisAgentServiceImplTest {
+
+    @Test
+    void continuesWithUnavailableGraphContextWhenGraphQueryFails() {
+        LangChain4jAgentProperties properties = new LangChain4jAgentProperties();
+        properties.setEnabled(true);
+        AgentContextPackage context = new AgentContextPackage();
+        context.setEmpId(7L);
+        context.setPostId(9L);
+        MatchingAnalysisAiService model = mock(MatchingAnalysisAiService.class);
+        AgentContextPackageService contextPackageService = mock(AgentContextPackageService.class);
+        KnowledgeGraphQueryService graphQueryService = mock(KnowledgeGraphQueryService.class);
+        RagContextService ragContextService = mock(RagContextService.class);
+        GroundedAgentOutputValidator validator = mock(GroundedAgentOutputValidator.class);
+        @SuppressWarnings("unchecked")
+        ObjectProvider<MatchingAnalysisAiService> provider = mock(ObjectProvider.class);
+
+        when(provider.getIfAvailable()).thenReturn(model);
+        when(contextPackageService.buildForMatchingRecord(100L)).thenReturn(context);
+        when(graphQueryService.getMatchContext(7L, 9L)).thenThrow(new IllegalStateException("graph unavailable"));
+        when(model.analyze(any())).thenReturn(new MatchingAnalysisAgentResult());
+        when(validator.validateMatching(any(), eq(context)))
+                .thenAnswer(invocation -> Optional.of(invocation.getArgument(0)));
+
+        MatchingAnalysisAgentServiceImpl service = new MatchingAnalysisAgentServiceImpl(
+                properties, contextPackageService, mock(AgentFallbackService.class), new ObjectMapper(),
+                mock(LlmResponseParser.class), graphQueryService, ragContextService, validator,
+                mock(AgentRunConfidencePolicy.class), provider);
+        MatchingAnalysisAgentRequest request = new MatchingAnalysisAgentRequest();
+        request.setMatchingRecordId(100L);
+
+        service.analyze(request);
+
+        verify(model).analyze(argThat(json -> json.contains("graphMatchContext")
+                && json.contains("UNAVAILABLE")));
+    }
+
+    @Test
+    void injectsRagAndGraphContextBeforeCallingTheModel() {
+        LangChain4jAgentProperties properties = new LangChain4jAgentProperties();
+        properties.setEnabled(true);
+        AgentContextPackage context = new AgentContextPackage();
+        context.setEmpId(7L);
+        context.setPostId(9L);
+        MatchingAnalysisAiService model = mock(MatchingAnalysisAiService.class);
+        AgentContextPackageService contextPackageService = mock(AgentContextPackageService.class);
+        KnowledgeGraphQueryService graphQueryService = mock(KnowledgeGraphQueryService.class);
+        RagContextService ragContextService = mock(RagContextService.class);
+        LlmResponseParser parser = mock(LlmResponseParser.class);
+        @SuppressWarnings("unchecked")
+        ObjectProvider<MatchingAnalysisAiService> provider = mock(ObjectProvider.class);
+
+        when(provider.getIfAvailable()).thenReturn(model);
+        when(contextPackageService.buildForMatchingRecord(100L)).thenReturn(context);
+        GraphMatchContext graphContext = new GraphMatchContext(GraphContextStatus.AVAILABLE,
+                7L, "Lin", 9L, "Java", "KGV_TEST", null, List.of());
+        when(graphQueryService.getMatchContext(7L, 9L)).thenReturn(graphContext);
+        when(ragContextService.retrieveContext(contains("employeeId=7"),
+                eq(RagScenarioEnum.MATCHING_ANALYSIS.name()), eq(5))).thenReturn("RAG_CONTENT");
+        when(model.analyze(any())).thenReturn(new MatchingAnalysisAgentResult());
+
+        MatchingAnalysisAgentServiceImpl service = new MatchingAnalysisAgentServiceImpl(
+                properties, contextPackageService, mock(AgentFallbackService.class), new ObjectMapper(), parser,
+                graphQueryService, ragContextService, mock(GroundedAgentOutputValidator.class),
+                mock(AgentRunConfidencePolicy.class), provider);
+        MatchingAnalysisAgentRequest request = new MatchingAnalysisAgentRequest();
+        request.setMatchingRecordId(100L);
+
+        service.analyze(request);
+
+        InOrder order = inOrder(graphQueryService, model);
+        order.verify(graphQueryService).getMatchContext(7L, 9L);
+        order.verify(model).analyze(argThat(json -> json.contains("ragContext")
+                && json.contains("graphMatchContext")
+                && json.contains("KGV_TEST")));
+    }
+
+    @Test
+    void injectsGraphContextBeforeCallingMatchingModel() {
+        LangChain4jAgentProperties properties = new LangChain4jAgentProperties();
+        properties.setEnabled(true);
+        AgentContextPackage context = new AgentContextPackage();
+        context.setEmpId(7L);
+        context.setPostId(9L);
+        MatchingAnalysisAiService model = mock(MatchingAnalysisAiService.class);
+        AgentContextPackageService contextPackageService = mock(AgentContextPackageService.class);
+        KnowledgeGraphQueryService graphQueryService = mock(KnowledgeGraphQueryService.class);
+        RagContextService ragContextService = mock(RagContextService.class);
+        LlmResponseParser parser = mock(LlmResponseParser.class);
+        @SuppressWarnings("unchecked")
+        ObjectProvider<MatchingAnalysisAiService> provider = mock(ObjectProvider.class);
+
+        when(provider.getIfAvailable()).thenReturn(model);
+        when(contextPackageService.buildForMatchingRecord(100L)).thenReturn(context);
+        GraphMatchContext graphContext = new GraphMatchContext(GraphContextStatus.AVAILABLE,
+                7L, "Lin", 9L, "Java", "KGV_TEST", null, List.of());
+        when(graphQueryService.getMatchContext(7L, 9L)).thenReturn(graphContext);
+        when(ragContextService.retrieveContext(any(), any(), eq(5))).thenReturn("");
+        when(model.analyze(any())).thenReturn(new MatchingAnalysisAgentResult());
+
+        MatchingAnalysisAgentServiceImpl service = new MatchingAnalysisAgentServiceImpl(
+                properties, contextPackageService, mock(AgentFallbackService.class), new ObjectMapper(), parser,
+                graphQueryService, ragContextService, mock(GroundedAgentOutputValidator.class),
+                mock(AgentRunConfidencePolicy.class), provider);
+        MatchingAnalysisAgentRequest request = new MatchingAnalysisAgentRequest();
+        request.setMatchingRecordId(100L);
+
+        service.analyze(request);
+
+        InOrder order = inOrder(graphQueryService, model);
+        order.verify(graphQueryService).getMatchContext(7L, 9L);
+        order.verify(model).analyze(argThat(json -> json.contains("graphMatchContext") && json.contains("KGV_TEST")));
+        assertThat(context.getGraphSummary()).isNull();
+    }
+}

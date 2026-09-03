@@ -1,0 +1,23 @@
+[
+  {
+    "caseId": "SCAN-001",
+    "extractedSkills": ["Spark", "Flink", "Kafka", "Scala"],
+    "_note": "extractedSkills 替换为系统 OCR+抽取 后的真实输出；保留 JSON 结构"
+  },
+  {
+    "caseId": "SCAN-002",
+    "extractedSkills": []
+  },
+  {
+    "caseId": "SCAN-003",
+    "extractedSkills": []
+  },
+  {
+    "caseId": "SCAN-004",
+    "extractedSkills": []
+  },
+  {
+    "caseId": "SCAN-005",
+    "extractedSkills": []
+  }
+]

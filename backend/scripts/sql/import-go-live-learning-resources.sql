@@ -1,0 +1,31 @@
+-- Imports only baseline learning-resource catalog entries from hrms_db.sql.
+-- No employees, plans, learning progress, operational logs, or graph history are restored.
+-- The source file is UTF-8; force the import connection to decode it as utf8mb4.
+SET NAMES utf8mb4;
+START TRANSACTION;
+DELETE FROM learning_resource;
+INSERT INTO `learning_resource` VALUES (2, 'RES-JAVA-002', 'Java', NULL, 'Java核心技术精讲（B站）', 'VIDEO', 2, 'https://www.bilibili.com/video/BV1234567890', '深入理解Java集合框架、多线程、IO等核心机制', 'BILIBILI', 'bilibili', NULL, '约40小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (3, 'RES-JAVA-003', 'Java', NULL, 'Java并发编程实战（GitHub）', 'PROJECT', 4, 'https://github.com/example/java-concurrent-demo', '通过实际项目练习Java并发编程', 'GITHUB', 'github', NULL, '约30小时', 3, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (4, 'RES-SPRING-001', 'Spring Boot', NULL, 'Spring Boot快速入门（慕课网）', 'COURSE', 2, 'https://www.imooc.com/view/456', '从零搭建Spring Boot项目，掌握核心配置', 'MOOC', 'imooc', NULL, '约15小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (5, 'RES-SPRING-002', 'Spring Boot', NULL, 'Spring Boot实战教程（B站）', 'VIDEO', 2, 'https://www.bilibili.com/video/BV0987654321', 'Spring Boot整合MyBatis、Redis、RabbitMQ等', 'BILIBILI', 'bilibili', NULL, '约35小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (6, 'RES-MYSQL-001', 'MySQL', NULL, 'MySQL数据库入门（慕课网）', 'COURSE', 1, 'https://www.imooc.com/view/789', 'SQL语法基础、表设计、索引原理', 'MOOC', 'imooc', NULL, '约12小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (7, 'RES-MYSQL-002', 'MySQL', NULL, 'MySQL高级教程（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV1111111111', '事务隔离、锁机制、查询优化、分库分表', 'BILIBILI', 'bilibili', NULL, '约25小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (8, 'RES-REDIS-001', 'Redis', NULL, 'Redis入门到精通（慕课网）', 'COURSE', 2, 'https://www.imooc.com/view/101', 'Redis数据结构、持久化、集群、应用场景', 'MOOC', 'imooc', NULL, '约18小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (9, 'RES-REDIS-002', 'Redis', NULL, 'Redis实战（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV2222222222', 'Redis在高并发场景下的实际应用', 'BILIBILI', 'bilibili', NULL, '约20小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (10, 'RES-VUE-001', 'Vue.js', NULL, 'Vue3从入门到实战（慕课网）', 'COURSE', 1, 'https://www.imooc.com/view/202', 'Vue3组合式API、路由、状态管理', 'MOOC', 'imooc', NULL, '约30小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (11, 'RES-VUE-002', 'Vue.js', NULL, 'Vue3+TypeScript项目实战（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV3333333333', '完整企业级Vue3项目开发流程', 'BILIBILI', 'bilibili', NULL, '约45小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (12, 'RES-DOCKER-001', 'Docker', NULL, 'Docker从入门到实践（慕课网）', 'COURSE', 2, 'https://www.imooc.com/view/303', 'Docker基础、Dockerfile、Docker Compose', 'MOOC', 'imooc', NULL, '约10小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (13, 'RES-DOCKER-002', 'Docker', NULL, 'Docker+K8s实战（B站）', 'VIDEO', 4, 'https://www.bilibili.com/video/BV4444444444', 'Docker容器编排和Kubernetes集群管理', 'BILIBILI', 'bilibili', NULL, '约30小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (14, 'RES-PYTHON-001', 'Python', NULL, 'Python编程基础（慕课网）', 'COURSE', 1, 'https://www.imooc.com/view/404', 'Python语法基础、数据结构、函数式编程', 'MOOC', 'imooc', NULL, '约25小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (15, 'RES-PYTHON-002', 'Python', NULL, 'Python数据分析实战（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV5555555555', 'Pandas、NumPy、Matplotlib数据分析三件套', 'BILIBILI', 'bilibili', NULL, '约35小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (16, 'RES-MICRO-001', '微服务', NULL, '微服务架构设计（慕课网）', 'COURSE', 3, 'https://www.imooc.com/view/505', '微服务拆分原则、服务治理、链路追踪', 'MOOC', 'imooc', NULL, '约20小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (17, 'RES-MICRO-002', '微服务', NULL, 'Spring Cloud微服务实战（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV6666666666', 'Nacos、Gateway、Sentinel、Seata全家桶', 'BILIBILI', 'bilibili', NULL, '约40小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (18, 'RES-DESIGN-001', '设计模式', NULL, '设计模式精讲（慕课网）', 'COURSE', 2, 'https://www.imooc.com/view/606', '23种设计模式的Java实现和应用场景', 'MOOC', 'imooc', NULL, '约15小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (19, 'RES-DESIGN-002', '设计模式', NULL, '设计模式与架构（B站）', 'VIDEO', 3, 'https://www.bilibili.com/video/BV7777777777', '设计模式在实际项目中的应用', 'BILIBILI', 'bilibili', NULL, '约20小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (20, 'RES-GIT-001', 'Git', NULL, 'Git入门与进阶（慕课网）', 'COURSE', 1, 'https://www.imooc.com/view/707', 'Git基础操作、分支管理、团队协作', 'MOOC', 'imooc', NULL, '约8小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (21, 'RES-GIT-002', 'Git', NULL, 'Git工作流实战（B站）', 'VIDEO', 2, 'https://www.bilibili.com/video/BV8888888888', 'GitFlow、PR Review、CI/CD集成', 'BILIBILI', 'bilibili', NULL, '约10小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (22, 'RES-LINUX-001', 'Linux', NULL, 'Linux基础入门（慕课网）', 'COURSE', 1, 'https://www.imooc.com/view/808', 'Linux常用命令、文件系统、Shell脚本', 'MOOC', 'imooc', NULL, '约15小时', 1, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+INSERT INTO `learning_resource` VALUES (23, 'RES-LINUX-002', 'Linux', NULL, 'Linux运维实战（B站）', 'VIDEO', 2, 'https://www.bilibili.com/video/BV9999999999', 'Nginx配置、系统监控、性能调优', 'BILIBILI', 'bilibili', NULL, '约20小时', 2, 1, '2026-07-02 22:36:44', '2026-07-02 22:36:44');
+ALTER TABLE learning_resource AUTO_INCREMENT = 24;
+COMMIT;
+SELECT COUNT(*) AS imported_learning_resource_count FROM learning_resource;
