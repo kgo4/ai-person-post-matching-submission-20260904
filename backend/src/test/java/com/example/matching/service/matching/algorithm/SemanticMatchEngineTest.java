@@ -201,7 +201,7 @@ class SemanticMatchEngineTest {
     }
 
     @Test
-    void keepsPartialScoreForRelatedRequiredAbilityWithoutApplyingASecondPenalty() {
+    void appliesSimilarityConfidenceToPartialRequiredAbilityScore() {
         SemanticMatchEngine engine = new SemanticMatchEngine(
                 tagCanonicalResolver, vectorEmbeddingService, tagQueryPort, redisTemplate);
         MatchingRequirementSnapshot requirement = new MatchingRequirementSnapshot(
@@ -215,6 +215,6 @@ class SemanticMatchEngineTest {
 
         BigDecimal score = engine.calculateAbilityCompatibilityScore(List.of(detail), List.of(requirement));
 
-        assertThat(score).isEqualByComparingTo("80.00");
+        assertThat(score).isEqualByComparingTo("68.00");
     }
 }

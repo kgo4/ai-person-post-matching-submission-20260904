@@ -61,9 +61,6 @@ class LearningPathEnhancedServiceTest {
 
     @Test
     void generateLearningPathByKnowledgeGraphUsesPrerequisiteOrder() {
-        AbilityTag abilityTag = new AbilityTag();
-        abilityTag.setId(5L);
-        abilityTag.setTagName("AI");
         KnowledgeDomain domain = new KnowledgeDomain();
         domain.setId(10L);
         domain.setDomainName("AI");
@@ -71,7 +68,6 @@ class LearningPathEnhancedServiceTest {
         foundation.setNodeName("Foundation");
         KnowledgeNode application = node(2L, 1, "[1]");
         application.setNodeName("Application");
-        when(abilityTagMapper.selectOne(any())).thenReturn(abilityTag);
         when(domainService.getAllDomains()).thenReturn(List.of(domain));
         when(domainService.getNodesByDomainId(10L))
                 .thenReturn(new ArrayList<>(List.of(application, foundation)));
@@ -102,7 +98,6 @@ class LearningPathEnhancedServiceTest {
 
         when(postAbilityModelMapper.selectList(any())).thenReturn(List.of(requirement));
         when(empAbilityMapper.selectList(any())).thenReturn(List.of(employeeAbility));
-        when(abilityTagMapper.selectById(99L)).thenReturn(null);
 
         List<LearningPathItemDTO> result = service.generateLearningPathByMastery(1L, 2L);
 

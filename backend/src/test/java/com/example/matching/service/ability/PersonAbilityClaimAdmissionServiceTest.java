@@ -65,7 +65,7 @@ class PersonAbilityClaimAdmissionServiceTest {
         assertThat(admitted.getStatus()).isEqualTo("FUSED");
         verify(empAbilityMapper).insert(any(EmpAbility.class));
         verify(profileAgent).refreshProfile(1L);
-        verify(abilityEvidenceIngestionService).ingestEmployeeAbility(any(), eq("EMP_ABILITY"));
+        verify(abilityEvidenceIngestionService, never()).ingestEmployeeAbility(any(), eq("EMP_ABILITY"));
         verify(eventPublisher).publishEvent(any(AbilityChangeEvent.class));
         var order = inOrder(claimMapper, empAbilityMapper, profileAgent);
         order.verify(claimMapper).insert(any(PersonAbilityClaim.class));

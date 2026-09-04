@@ -1,6 +1,7 @@
 package com.example.matching.integration.fault;
 
 import com.example.matching.dto.matching.MatchingPostProfile;
+import com.example.matching.dto.matching.MatchingRequirementSnapshot;
 import com.example.matching.service.matching.EmployeeVectorRecallService;
 import com.example.matching.service.matching.MatchingProfileTextBuilder;
 import com.example.matching.vector.MilvusVectorService;
@@ -146,7 +147,8 @@ class MilvusFailureInjectionTest {
 
     private MatchingPostProfile buildPost() {
         return new MatchingPostProfile(
-                1L, "P1", "Java后端工程师", null, "负责后端接口开发", null, List.of());
+                1L, "P1", "Java后端工程师", null, "负责后端接口开发", null, List.of(
+                        new MatchingRequirementSnapshot(10L, "Java", 3, null, null, null, null)));
     }
 
     private record StubObjectProvider<T>(T instance) implements ObjectProvider<T> {

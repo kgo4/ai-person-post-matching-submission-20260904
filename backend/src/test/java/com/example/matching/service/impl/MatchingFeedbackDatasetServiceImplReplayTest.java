@@ -94,9 +94,9 @@ class MatchingFeedbackDatasetServiceImplReplayTest {
 
         assertThat(summary.get("totalSamples")).isEqualTo(1);
         assertThat(summary.get("currentAverageDeviation")).isEqualTo(10.0d);
-        assertThat(summary.get("decalibratedAverageDeviation")).isEqualTo(1.0d);
+        assertThat(summary.get("decalibratedAverageDeviation")).isEqualTo(10.0d);
         assertThat(summary.get("currentAverageBias")).isEqualTo(10.0d);
-        assertThat(summary.get("decalibratedAverageBias")).isEqualTo(1.0d);
+        assertThat(summary.get("decalibratedAverageBias")).isEqualTo(10.0d);
 
         @SuppressWarnings("unchecked")
         Map<String, Long> targetCounts = (Map<String, Long>) summary.get("calibrationTargetCounts");

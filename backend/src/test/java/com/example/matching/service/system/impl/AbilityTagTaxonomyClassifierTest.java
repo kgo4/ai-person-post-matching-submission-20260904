@@ -45,10 +45,21 @@ class AbilityTagTaxonomyClassifierTest {
         tag.setId(id);
         tag.setTagName(name);
         tag.setDomain(domain);
+        tag.setTagCategory("TECHNICAL");
         tag.setTagLevel(2);
         tag.setParentId(1911L);
         tag.setStatus(1);
         return tag;
+    }
+
+    private AbilityTag domain() {
+        AbilityTag domain = new AbilityTag();
+        domain.setId(1911L);
+        domain.setTagName("技术能力");
+        domain.setTagLevel(1);
+        domain.setTagCategory("TECHNICAL");
+        domain.setStatus(1);
+        return domain;
     }
 
     @Test
@@ -63,6 +74,7 @@ class AbilityTagTaxonomyClassifierTest {
 
         when(taxonomyMapMapper.selectOne(any())).thenReturn(rule);
         when(abilityTagMapper.selectById(2002L)).thenReturn(backend);
+        when(abilityTagMapper.selectById(1911L)).thenReturn(domain());
 
         TaxonomyClassifyResult result = classifier.classify("SpringBoot");
 
@@ -81,6 +93,7 @@ class AbilityTagTaxonomyClassifierTest {
         frontend.setEmbeddingVector(List.of(0.1f, 0.2f, 0.3f));
 
         when(abilityTagMapper.selectList(any())).thenReturn(List.of(frontend));
+        when(abilityTagMapper.selectById(1911L)).thenReturn(domain());
         when(vectorEmbeddingService.embed("Vue3")).thenReturn(List.of(0.1f, 0.2f, 0.3f));
         when(vectorEmbeddingService.cosineSimilarity(anyList(), anyList())).thenReturn(0.85f);
 

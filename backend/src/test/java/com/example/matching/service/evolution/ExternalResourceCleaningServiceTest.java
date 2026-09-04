@@ -35,18 +35,18 @@ class ExternalResourceCleaningServiceTest {
     void returnsTheNoiseRemovedTextThatWillBeUsedByTheAgent() {
         PostCleaningRulesEngine cleaner = mock(PostCleaningRulesEngine.class);
         when(cleaner.cleanText("趋势标题")).thenReturn("清洗后标题");
-        when(cleaner.cleanText("原始正文，联系方式：13800000000，保留技术趋势内容。"))
-                .thenReturn("保留技术趋势内容。");
+        when(cleaner.cleanText("原始正文，联系方式：13800000000，保留技术趋势内容，并说明向量数据库在企业检索和智能问答场景中的应用。"))
+                .thenReturn("保留技术趋势内容，并说明向量数据库在企业检索和智能问答场景中的应用。");
         ExternalResourceCleaningService service = new ExternalResourceCleaningServiceImpl(
                 new KnowledgeDocumentDeduplicator(), cleaner);
 
         var result = service.clean(List.of(new ExternalTrendResourceDTO(
-                "趋势标题", "ARTICLE", "1", "原始正文，联系方式：13800000000，保留技术趋势内容。",
+                "趋势标题", "ARTICLE", "1", "原始正文，联系方式：13800000000，保留技术趋势内容，并说明向量数据库在企业检索和智能问答场景中的应用。",
                 "https://www.zhihu.com/question/1", 0, 0, "ZHIHU_TREND", false, false)));
 
         assertThat(result.items()).singleElement().satisfies(item -> {
             assertThat(item.title()).isEqualTo("清洗后标题");
-            assertThat(item.summary()).isEqualTo("保留技术趋势内容。");
+            assertThat(item.summary()).isEqualTo("保留技术趋势内容，并说明向量数据库在企业检索和智能问答场景中的应用。");
             assertThat(item.summary()).doesNotContain("13800000000");
         });
     }

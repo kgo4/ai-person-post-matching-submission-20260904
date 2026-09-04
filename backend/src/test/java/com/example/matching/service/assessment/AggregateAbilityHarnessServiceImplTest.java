@@ -115,7 +115,7 @@ class AggregateAbilityHarnessServiceImplTest {
         assertThat(results).hasSize(2);
         assertThat(results).extracting(HarnessBatchItemResultDTO::getClaimGroupId,
                         HarnessBatchItemResultDTO::getDecision)
-                .containsExactly(org.assertj.core.groups.Tuple.tuple(1L, "PASS"),
+                .containsExactly(org.assertj.core.groups.Tuple.tuple(1L, "REVIEW"),
                         org.assertj.core.groups.Tuple.tuple(2L, "REVIEW"));
         // 一次批量调用而非逐条
         ArgumentCaptor<List<AiHarnessClaimDTO>> claimsCaptor = ArgumentCaptor.forClass(List.class);

@@ -18,13 +18,14 @@ class AiLearningSuggestionValidatorImplTest {
     private final AiLearningSuggestionValidatorImpl validator = new AiLearningSuggestionValidatorImpl();
 
     @Test
-    void filtersSuggestionWithoutVerifiedTagId() {
+    void keepsSuggestionWhenAbilityNameIsVerifiedEvenWithoutTagId() {
         AiLearningSuggestionDTO.AbilitySuggestion suggestion = suggestion(null, "Java", 1L);
 
         validator.validate(new ArrayList<>(List.of(suggestion)), Set.of("Java"), resources(), Set.of(7L), emptyGraph());
 
-        assertThat(suggestion.isInsufficientEvidence()).isTrue();
-        assertThat(suggestion.getSteps()).isEmpty();
+        assertThat(suggestion.isInsufficientEvidence()).isFalse();
+        assertThat(suggestion.getSteps()).hasSize(1);
+        assertThat(suggestion.getSteps().get(0).isValidated()).isTrue();
     }
 
     @Test

@@ -11,8 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RabbitListenerFactoryAssignmentTest {
 
     private static final Set<String> SLOW_LISTENERS = Set.of(
-        "MatchingTaskListener", "ResumeParseTaskListener", "ExcelImportAnalyzeListener",
+        "MatchingTaskListener", "ResumeParseTaskListener",
         "PostEvolutionAgentTaskListener", "AiTestTaskListener", "GraphBuildTaskListener"
+    );
+
+    private static final Set<String> EXCEL_IMPORT_AI_LISTENERS = Set.of(
+        "ExcelImportAnalyzeListener"
     );
 
     private static final Set<String> FAST_LISTENERS = Set.of(
@@ -41,6 +45,19 @@ class RabbitListenerFactoryAssignmentTest {
                 .anyMatch(a -> "fastRabbitListenerContainerFactory".equals(a.containerFactory()));
             assertThat(hasFastAnnot)
                 .as(className + " should use fastRabbitListenerContainerFactory")
+                .isTrue();
+        }
+    }
+
+    @Test
+    void excelImportAiListenersUseDedicatedFactory() throws Exception {
+        for (String className : EXCEL_IMPORT_AI_LISTENERS) {
+            Class<?> clazz = Class.forName("com.example.matching.listener." + className);
+            boolean hasDedicatedAnnot = Arrays.stream(clazz.getDeclaredMethods())
+                .flatMap(m -> Arrays.stream(m.getAnnotationsByType(RabbitListener.class)))
+                .anyMatch(a -> "excelImportAiRabbitListenerContainerFactory".equals(a.containerFactory()));
+            assertThat(hasDedicatedAnnot)
+                .as(className + " should use excelImportAiRabbitListenerContainerFactory")
                 .isTrue();
         }
     }

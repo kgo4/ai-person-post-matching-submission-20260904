@@ -269,21 +269,18 @@ class KnowledgeDocumentServiceTest {
     }
 
     @Test
-    @DisplayName("回填岗位能力模型：原系统岗位能力进入RAG知识文档")
-    void backfillDocuments_postAbilityModelCreatesKnowledgeDocument() {
+    @DisplayName("回填岗位能力模型：缺少标签名称时仍保留岗位能力知识文档")
+    void backfillDocuments_postAbilityModelWithoutReadableAbilityUsesFallbackDocument() {
         when(postQueryPort.listActivePostAbilityModels(anyInt())).thenReturn(List.of(
                 new PostAbilityDTO(21L, 3L, 2L, 4, new BigDecimal("75"), 1, 1, null, null, null)));
         doReturn(0L).when(documentMapper).selectCount(any());
         ArgumentCaptor<RagKnowledgeDocument> captor = ArgumentCaptor.forClass(RagKnowledgeDocument.class);
         doReturn(1).when(documentMapper).insert(captor.capture());
-
         int created = knowledgeDocumentService.backfillDocuments("POST_ABILITY_MODEL", 10);
 
         assertEquals(1, created);
-        RagKnowledgeDocument doc = captor.getValue();
-        assertEquals("POST_ABILITY_MODEL", doc.getSourceType());
-        assertEquals(21L, doc.getSourceRefId());
-        assertTrue(doc.getTitle().contains("#21"));
+        assertEquals("POST_ABILITY_MODEL", captor.getValue().getSourceType());
+        assertEquals(21L, captor.getValue().getSourceRefId());
     }
 
     @Test

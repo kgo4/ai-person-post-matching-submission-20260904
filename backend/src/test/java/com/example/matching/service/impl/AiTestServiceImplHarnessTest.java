@@ -125,40 +125,19 @@ class AiTestServiceImplHarnessTest {
     }
 
     @Test
-    void generateTestPersistsGenerationTaskInOutbox() {
-        com.example.matching.entity.system.AbilityTag tag = new com.example.matching.entity.system.AbilityTag();
-        tag.setTagName("Java");
-        when(abilityTagMapper.selectById(7L)).thenReturn(tag);
-        when(empAiTestMapper.insert(any(EmpAiTest.class))).thenAnswer(invocation -> {
-            invocation.getArgument(0, EmpAiTest.class).setId(12L);
-            return 1;
-        });
-
-        service.generateTest(100L, 7L, 9L);
-
-        verify(outboxDispatcher).enqueue(
-                eq("AI_TEST"), eq("matching.exchange"), eq("ai.test.generate"),
-                argThat(payload -> payload instanceof com.example.matching.listener.AiTestTaskPayload task
-                        && "GENERATE".equals(task.getTaskType()) && Long.valueOf(12L).equals(task.getTestId())));
+    void generateTestRejectsLegacyDirectEntry() {
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> service.generateTest(100L, 7L, 9L))
+                .isInstanceOf(com.example.matching.common.exception.BusinessException.class)
+                .hasMessageContaining("统一工作流");
+        verifyNoInteractions(empAiTestMapper, outboxDispatcher);
     }
 
     @Test
-    void generatePostTestPersistsTheExactPostIdForAsyncGeneration() {
-        com.example.matching.entity.post.PostPost post = new com.example.matching.entity.post.PostPost();
-        post.setId(42L);
-        post.setPostName("Java Engineer");
-        com.example.matching.entity.post.PostAbilityModel model = new com.example.matching.entity.post.PostAbilityModel();
-        model.setTagId(7L);
-        when(postPostMapper.selectById(42L)).thenReturn(post);
-        when(postAbilityModelMapper.selectList(any())).thenReturn(List.of(model));
-        when(empAiTestMapper.insert(any(EmpAiTest.class))).thenAnswer(invocation -> {
-            invocation.getArgument(0, EmpAiTest.class).setId(12L);
-            return 1;
-        });
-
-        EmpAiTest generated = service.generatePostTest(100L, 42L, 9L);
-
-        assertThat(generated.getPostId()).isEqualTo(42L);
+    void generatePostTestRejectsLegacyDirectEntry() {
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> service.generatePostTest(100L, 42L, 9L))
+                .isInstanceOf(com.example.matching.common.exception.BusinessException.class)
+                .hasMessageContaining("统一工作流");
+        verifyNoInteractions(empAiTestMapper, outboxDispatcher);
     }
 
     @Test

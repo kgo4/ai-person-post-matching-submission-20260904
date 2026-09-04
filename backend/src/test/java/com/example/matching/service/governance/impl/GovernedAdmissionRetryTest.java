@@ -182,6 +182,7 @@ class GovernedAdmissionRetryTest {
         claim.setRequiredLevel(4);
         claim.setSourceType("JD_IMPORT");
         claim.setEvidenceText("JD requires Java");
+        claim.setSourceRefs(List.of("fact:POST_ABILITY_MODEL:1"));
 
         GovernanceAdmissionRecord record = new GovernanceAdmissionRecord();
         record.setId(2L);

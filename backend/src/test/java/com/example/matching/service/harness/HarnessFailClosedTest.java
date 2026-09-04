@@ -76,8 +76,8 @@ class HarnessFailClosedTest {
     }
 
     @Test
-    @DisplayName("All valid refs + evidence + tag -> PASS")
-    void allValidRefsPass() {
+    @DisplayName("All valid refs + evidence + tag require review without independent verification")
+    void allValidRefsRequireReviewWithoutIndependentVerification() {
         var valid = new AiContextSourceRefService.ResolveOutcome(
                 SourceRefValidationResult.VALID, new com.example.matching.ai.context.dto.AiContextSourceRefDTO());
         when(sourceRefService.resolveWithStatus("fact:EMP_ABILITY:1")).thenReturn(valid);
@@ -90,7 +90,7 @@ class HarnessFailClosedTest {
 
         AiHarnessDecisionDTO decision = service.verify(claim);
 
-        assertThat(decision.getDecision()).isEqualTo(AiHarnessDecisionDTO.PASS);
+        assertThat(decision.getDecision()).isEqualTo(AiHarnessDecisionDTO.REVIEW);
     }
 
     @Test

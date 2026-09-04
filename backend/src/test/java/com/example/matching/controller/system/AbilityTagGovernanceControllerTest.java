@@ -55,13 +55,13 @@ class AbilityTagGovernanceControllerTest {
     }
 
     @Test
-    void approveCandidateUsesSecurityUserId() {
-        when(facade.approveCandidate(1L, "TECHNICAL", 7L)).thenReturn(5L);
+    void legacyApproveCandidateUsesDefaultRootDomain() {
+        when(facade.approveCandidate(1L, "TECHNICAL", 0L)).thenReturn(5L);
 
         R<Long> response = controller.approveCandidate(1L, "TECHNICAL");
 
         assertThat(response.getData()).isEqualTo(5L);
-        verify(facade).approveCandidate(1L, "TECHNICAL", 7L);
+        verify(facade).approveCandidate(1L, "TECHNICAL", 0L);
     }
 
     @Test

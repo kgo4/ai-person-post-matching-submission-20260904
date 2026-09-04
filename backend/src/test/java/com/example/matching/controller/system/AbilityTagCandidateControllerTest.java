@@ -86,12 +86,12 @@ class AbilityTagCandidateControllerTest {
         AbilityTagCandidateApiFacade facade = mock(AbilityTagCandidateApiFacade.class);
         AbilityTagCandidateController controller = new AbilityTagCandidateController(facade);
 
-        when(facade.approve(1L, "同意")).thenReturn(100L);
+        when(facade.approve(1L, 0L, "同意")).thenReturn(100L);
 
         R<Long> response = controller.approve(1L, "同意");
 
         assertThat(response.getData()).isEqualTo(100L);
-        verify(facade).approve(1L, "同意");
+        verify(facade).approve(1L, 0L, "同意");
     }
 
     @Test

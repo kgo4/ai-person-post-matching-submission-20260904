@@ -20,6 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -218,8 +219,8 @@ class MarketJdImportServiceImplTest {
         verify(admissionService).admitBatch(any());
 
         ArgumentCaptor<MarketJdData> captured = ArgumentCaptor.forClass(MarketJdData.class);
-        verify(marketJdDataMapper).updateById(captured.capture());
-        MarketJdData saved = captured.getValue();
+        verify(marketJdDataMapper, atLeastOnce()).updateById(captured.capture());
+        MarketJdData saved = captured.getAllValues().get(captured.getAllValues().size() - 1);
         assertEquals("[10,20]", saved.getSkillTags()); // 排序去重 JSON
         assertEquals(1, saved.getAnalysisStatus());
         assertEquals(2, result.getAutoAdmittedCount()); // 计数从计划透传
@@ -240,8 +241,8 @@ class MarketJdImportServiceImplTest {
         service.analyzeBatch("B1");
 
         ArgumentCaptor<MarketJdData> captured = ArgumentCaptor.forClass(MarketJdData.class);
-        verify(marketJdDataMapper).updateById(captured.capture());
-        assertEquals("[10]", captured.getValue().getSkillTags());
+        verify(marketJdDataMapper, atLeastOnce()).updateById(captured.capture());
+        assertEquals("[10]", captured.getAllValues().get(captured.getAllValues().size() - 1).getSkillTags());
     }
 
     @Test
@@ -257,9 +258,10 @@ class MarketJdImportServiceImplTest {
         service.analyzeBatch("B1");
 
         ArgumentCaptor<MarketJdData> captured = ArgumentCaptor.forClass(MarketJdData.class);
-        verify(marketJdDataMapper).updateById(captured.capture());
-        assertEquals("[]", captured.getValue().getSkillTags());
-        assertEquals(1, captured.getValue().getAnalysisStatus()); // 决策完成（含空集合）
+        verify(marketJdDataMapper, atLeastOnce()).updateById(captured.capture());
+        MarketJdData saved = captured.getAllValues().get(captured.getAllValues().size() - 1);
+        assertEquals("[]", saved.getSkillTags());
+        assertEquals(1, saved.getAnalysisStatus()); // 决策完成（含空集合）
     }
 
     @Test
@@ -272,8 +274,10 @@ class MarketJdImportServiceImplTest {
 
         MarketJdImportService.BatchAnalysisResult result = service.analyzeBatch("B1");
 
-        // 基础设施失败：绝不 updateById 落 skillTags，JD 保持 analysisStatus=0 可重试
-        org.mockito.Mockito.verify(marketJdDataMapper, org.mockito.Mockito.never()).updateById(any(MarketJdData.class));
+        // 治理阶段可更新质量字段；AI 准入失败时最终分析状态仍保持 0，可重试。
+        ArgumentCaptor<MarketJdData> captured = ArgumentCaptor.forClass(MarketJdData.class);
+        verify(marketJdDataMapper, atLeastOnce()).updateById(captured.capture());
+        assertEquals(0, captured.getAllValues().get(captured.getAllValues().size() - 1).getAnalysisStatus());
         assertEquals(1, result.getExtractedFailed());
         assertFalse(result.getErrors().isEmpty());
     }

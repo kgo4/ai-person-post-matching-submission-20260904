@@ -77,7 +77,7 @@ class LearningAssessmentServiceImplTest {
         when(planMapper.selectById(1L)).thenReturn(newPlan());
         when(stepMapper.selectList(any())).thenReturn(List.of(newStep()));
         String aiJson = "{\"questionText\":\"请描述一次生产环境服务降级的排查过程\",\"referenceAnswer\":\"场景+方案+验证\",\"difficultyLevel\":\"HARD\",\"scoringPoints\":\"排查思路/证据\"}";
-        when(langChain4jChatService.chat(eq("learning-assessment-question"), any(), any(), any())).thenReturn(aiJson);
+        when(langChain4jChatService.chat(eq("learning-assessment-question"), any(), any(), any(), eq(15L))).thenReturn(aiJson);
         when(llmResponseParser.extractJson(aiJson)).thenReturn(aiJson);
 
         LearningAssessmentGenerateRequest request = new LearningAssessmentGenerateRequest();
@@ -95,7 +95,7 @@ class LearningAssessmentServiceImplTest {
     void generateAssessmentsFallsBackToTemplateWhenAiUnavailable() {
         when(planMapper.selectById(1L)).thenReturn(newPlan());
         when(stepMapper.selectList(any())).thenReturn(List.of(newStep()));
-        when(langChain4jChatService.chat(eq("learning-assessment-question"), any(), any(), any())).thenReturn(null);
+        when(langChain4jChatService.chat(eq("learning-assessment-question"), any(), any(), any(), eq(15L))).thenReturn(null);
 
         LearningAssessmentGenerateRequest request = new LearningAssessmentGenerateRequest();
         request.setPlanId(1L);
@@ -116,7 +116,7 @@ class LearningAssessmentServiceImplTest {
         item.setReferenceAnswer("参考答案要点");
         when(assessmentItemMapper.selectById(50L)).thenReturn(item);
         String aiJson = "{\"score\":85,\"passed\":true,\"feedback\":\"回答完整，包含验证证据。\"}";
-        when(langChain4jChatService.chat(eq("learning-assessment-score"), any(), any(), any())).thenReturn(aiJson);
+        when(langChain4jChatService.chat(eq("learning-assessment-score"), any(), any(), any(), eq(20L))).thenReturn(aiJson);
         when(llmResponseParser.extractJson(aiJson)).thenReturn(aiJson);
 
         LearningAssessmentItem result = service.answer(50L, "我在项目中采用K8s部署，验证了滚动发布与回滚，监控指标正常。");
@@ -134,7 +134,7 @@ class LearningAssessmentServiceImplTest {
         item.setStepId(10L);
         item.setQuestionText("请说明如何在项目中应用云原生架构");
         when(assessmentItemMapper.selectById(50L)).thenReturn(item);
-        when(langChain4jChatService.chat(eq("learning-assessment-score"), any(), any(), any())).thenReturn(null);
+        when(langChain4jChatService.chat(eq("learning-assessment-score"), any(), any(), any(), eq(20L))).thenReturn(null);
 
         String longAnswer = "我在项目中负责云原生架构设计。业务场景是微服务拆分，技术方案是Kubernetes与容器化。实现时引入了服务网格，通过测试验证了流量治理效果，监控指标显示稳定性提升，并排查了若干性能问题。";
         LearningAssessmentItem result = service.answer(50L, longAnswer);

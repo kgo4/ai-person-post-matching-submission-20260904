@@ -89,7 +89,7 @@ class AbilityLevelConfirmationServiceImplTest {
     }
 
     @Test
-    void confirmLevels_onlyResumeEvidenceRequiresManualReview() {
+    void confirmLevels_afterHarnessPassAppliesSingleSourceCeilingAndAutoConfirms() {
         PersonAbilityClaimGroup group = group(1L, 10L, EvidenceStatusEnum.READY_FOR_AGGREGATE_HARNESS.getCode());
         when(claimGroupMapper.selectList(any())).thenReturn(List.of(group));
         // 仅简历来源声明 L4（单来源上限 2）
@@ -109,17 +109,17 @@ class AbilityLevelConfirmationServiceImplTest {
         service.confirmLevels(1L, 600L);
 
         PersonAbilityLevelDecision decision = captured[0];
-        // 仅简历证据虽经聚合 Harness 通过，但缺少测试和面试双核验，必须进入同一轮人工审核。
+        // Harness 是唯一人工审核闸门；进入最终等级中心后只计算等级并自动入库。
         assertThat(decision.getFinalLevel()).isLessThanOrEqualTo(2);
-        assertThat(decision.getDecisionStatus()).isEqualTo(DecisionStatusEnum.PENDING_MANUAL_REVIEW.getCode());
-        assertThat(decision.getDecisionReasonCodesJson()).contains("REVIEW_MISSING_TEST_VERIFICATION");
-        assertThat(decision.getDecisionReasonCodesJson()).contains("REVIEW_MISSING_INTERVIEW_VERIFICATION");
+        assertThat(decision.getDecisionStatus()).isEqualTo(DecisionStatusEnum.AUTO_CONFIRMED.getCode());
+        assertThat(decision.getDecisionReasonCodesJson()).contains("SINGLE_SOURCE_CEILING");
+        assertThat(decision.getDecisionReasonCodesJson()).contains("HARNESS_APPROVED_FUSION");
         assertThat(decision.getPolicyVersion()).isEqualTo("level-confirmation-v1");
         assertThat(decision.getPolicySnapshotJson()).contains("singleSourceLevelCeiling");
     }
 
     @Test
-    void confirmLevels_onlyTestVerificationRequiresManualReview() {
+    void confirmLevels_afterHarnessPassAutoConfirmsEvenWhenClaimsHaveConflictSignal() {
         PersonAbilityClaimGroup group = group(2L, 10L, EvidenceStatusEnum.READY_FOR_AGGREGATE_HARNESS.getCode());
         when(claimGroupMapper.selectList(any())).thenReturn(List.of(group));
         // 简历 L2 vs 测试 L4：等级差 2 >= 冲突阈值
@@ -141,9 +141,10 @@ class AbilityLevelConfirmationServiceImplTest {
         service.confirmLevels(1L, 600L);
 
         assertThat(captured[0].getDecisionStatus())
-                .isEqualTo(DecisionStatusEnum.PENDING_MANUAL_REVIEW.getCode());
+                .isEqualTo(DecisionStatusEnum.AUTO_CONFIRMED.getCode());
         assertThat(captured[0].getConflictSignalsJson()).contains("等级冲突");
-        assertThat(captured[0].getDecisionReasonCodesJson()).contains("REVIEW_MISSING_INTERVIEW_VERIFICATION");
+        assertThat(captured[0].getDecisionReasonCodesJson()).contains("CONFLICT_DETECTED");
+        assertThat(captured[0].getDecisionReasonCodesJson()).contains("HARNESS_APPROVED_FUSION");
     }
 
     @Test
@@ -172,11 +173,11 @@ class AbilityLevelConfirmationServiceImplTest {
 
         assertThat(captured[0].getDecisionStatus()).isEqualTo(DecisionStatusEnum.AUTO_CONFIRMED.getCode());
         assertThat(captured[0].getFinalLevel()).isEqualTo(3);
-        assertThat(captured[0].getDecisionReasonCodesJson()).contains("AUTO_PASS_DUAL_VERIFICATION");
+        assertThat(captured[0].getDecisionReasonCodesJson()).contains("HARNESS_APPROVED_FUSION");
     }
 
     @Test
-    void confirmLevels_withoutResumeEvidenceOrVerificationBlocksDecision() {
+    void confirmLevels_reliesOnEarlierHarnessGateAndAutoConfirmsEnteredClaims() {
         PersonAbilityClaimGroup group = group(4L, null, EvidenceStatusEnum.READY_FOR_AGGREGATE_HARNESS.getCode());
         when(claimGroupMapper.selectList(any())).thenReturn(List.of(group));
         PersonAbilityClaim invalidResume = claim("RESUME_PARSE", 3, BigDecimal.valueOf(80));
@@ -195,9 +196,9 @@ class AbilityLevelConfirmationServiceImplTest {
 
         service.confirmLevels(1L, 600L);
 
-        assertThat(captured[0].getDecisionStatus()).isEqualTo(DecisionStatusEnum.REJECTED.getCode());
-        assertThat(captured[0].getFinalLevel()).isNull();
-        assertThat(captured[0].getDecisionReasonCodesJson()).contains("BLOCK_NO_VALID_EVIDENCE_OR_VERIFICATION");
+        assertThat(captured[0].getDecisionStatus()).isEqualTo(DecisionStatusEnum.AUTO_CONFIRMED.getCode());
+        assertThat(captured[0].getFinalLevel()).isEqualTo(2);
+        assertThat(captured[0].getDecisionReasonCodesJson()).contains("HARNESS_APPROVED_FUSION");
     }
 
     @Test

@@ -41,13 +41,10 @@ class MatchingAlgorithmServiceReportTest {
     }
 
     @Test
-    void generateReport_usesMatchedEmployeeTagEvidence_whenCanonicalMatch() throws Exception {
-        when(tagCanonicalResolver.batchGetCanonicalTagIds(anyCollection()))
-                .thenReturn(Map.of(10L, 100L))
-                .thenReturn(Map.of(11L, 100L));
+    void generateReport_usesMatchedEmployeeAbilityEvidence_whenFormalNamesMatch() throws Exception {
 
         MatchingAbilitySnapshot empAbility = new MatchingAbilitySnapshot(
-                null, 11L, "Java后端开发", 4, BigDecimal.ONE, "MANUAL", BigDecimal.ONE, null);
+                11L, 11L, "Java开发", 4, BigDecimal.ONE, "MANUAL", BigDecimal.ONE, null);
 
         MatchingRequirementSnapshot requirement = new MatchingRequirementSnapshot(
                 10L, "Java开发", 3, new BigDecimal("100"), 0, 0, null);
@@ -69,7 +66,7 @@ class MatchingAlgorithmServiceReportTest {
         JsonNode root = objectMapper.readTree(report);
         JsonNode detail = root.path("abilityDetails").get(0);
 
-        assertThat(detail.path("matchType").asText()).isEqualTo("CANONICAL");
+        assertThat(detail.path("matchType").asText()).isEqualTo("EXACT");
         assertThat(detail.path("matchedEmpTagId").asLong()).isEqualTo(11L);
         assertThat(detail.path("evidences")).hasSize(1);
         assertThat(detail.path("evidences").get(0).path("source").asText()).isEqualTo("MANUAL");

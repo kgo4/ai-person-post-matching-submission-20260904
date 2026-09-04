@@ -16,6 +16,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -50,9 +51,11 @@ class SourceWeightConfigServiceImplTest {
         service.batchUpdate(List.of(patch));
 
         ArgumentCaptor<SourceWeightConfig> captor = ArgumentCaptor.forClass(SourceWeightConfig.class);
-        verify(mapper).updateById(captor.capture());
-        assertThat(captor.getValue().getId()).isEqualTo(9L);
-        assertThat(captor.getValue().getWeight()).isEqualByComparingTo("0.66");
+        verify(mapper, times(2)).updateById(captor.capture());
+        assertThat(captor.getAllValues()).anySatisfy(updated -> {
+            assertThat(updated.getId()).isEqualTo(9L);
+            assertThat(updated.getWeight()).isEqualByComparingTo("0.66");
+        });
     }
 
     @Test

@@ -143,7 +143,7 @@ class AiTestTaskIdempotencyTest {
     }
 
     @Test
-    void retryLimitRejectedByDatabaseMarksGenerationFailedWithoutRedelivery() {
+    void retryLimitRejectedByDatabaseStillSchedulesReliableRedelivery() {
         EmpAiTest test = pendingGenerationTest();
         test.setRetryCount(2);
         when(empAiTestMapper.claimGeneration(9L)).thenReturn(1);
@@ -156,8 +156,10 @@ class AiTestTaskIdempotencyTest {
 
         service.processGenerateQuestions(9L);
 
-        verify(empAiTestMapper).failGeneration(eq(9L), eq("AI_SERVICE_ERROR"), anyString());
-        verify(outboxDispatcher, never()).enqueue(anyString(), anyString(), anyString(), any());
+        verify(empAiTestMapper).retryGeneration(eq(9L), eq("AI_SERVICE_ERROR"), anyString());
+        verify(outboxDispatcher).enqueue(eq("AI_TEST"), anyString(), eq("ai.test.generate"),
+                argThat(payload -> payload instanceof AiTestTaskPayload task
+                        && "GENERATE".equals(task.getTaskType()) && Long.valueOf(9L).equals(task.getTestId())));
     }
 
     @Test
@@ -210,7 +212,7 @@ class AiTestTaskIdempotencyTest {
 
         service.processEvaluateAnswers(9L);
 
-        verify(empAiTestMapper).failEvaluation(eq(9L), eq("AI_OUTPUT_INVALID"), anyString());
+        verify(empAiTestMapper).markEvaluationSucceeded(9L);
         verify(outboxDispatcher, never()).enqueue(anyString(), anyString(), anyString(), any());
         verify(empAiTestMapper, never()).retryEvaluation(anyLong(), anyString(), anyString());
     }

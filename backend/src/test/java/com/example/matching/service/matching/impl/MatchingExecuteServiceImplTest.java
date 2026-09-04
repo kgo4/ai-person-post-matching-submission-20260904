@@ -61,6 +61,8 @@ class MatchingExecuteServiceImplTest {
         FeedbackCalibrationService feedbackCalibrationService = mock(FeedbackCalibrationService.class);
         RagScoreService ragScoreService = mock(RagScoreService.class);
         MatchingTrainingWeightProfileStore weightProfileStore = mock(MatchingTrainingWeightProfileStore.class);
+        when(weightProfileStore.currentProfile())
+                .thenReturn(MatchingTrainingWeightProfileStore.WeightProfile.defaultProfile());
         MatchingDataQueryService dataQuery = mock(MatchingDataQueryService.class);
         MatchingScoreService scoreService = mock(MatchingScoreService.class);
         MatchingAiAnalysisService aiAnalysisService = mock(MatchingAiAnalysisService.class);
@@ -175,6 +177,8 @@ class MatchingExecuteServiceImplTest {
         FeedbackCalibrationService feedbackCalibrationService = mock(FeedbackCalibrationService.class);
         RagScoreService ragScoreService = mock(RagScoreService.class);
         MatchingTrainingWeightProfileStore weightProfileStore = mock(MatchingTrainingWeightProfileStore.class);
+        when(weightProfileStore.currentProfile())
+                .thenReturn(MatchingTrainingWeightProfileStore.WeightProfile.defaultProfile());
         MatchingDataQueryService dataQuery = mock(MatchingDataQueryService.class);
         MatchingScoreService scoreService = mock(MatchingScoreService.class);
         MatchingAiAnalysisService aiAnalysisService = mock(MatchingAiAnalysisService.class);

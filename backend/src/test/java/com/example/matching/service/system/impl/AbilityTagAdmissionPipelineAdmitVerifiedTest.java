@@ -46,7 +46,7 @@ class AbilityTagAdmissionPipelineAdmitVerifiedTest {
     void setUp() {
         pipeline = new AbilityTagAdmissionPipeline(engine, vectorOperations, abilityTagNormalizer,
                 abilityTagCandidateService, tagCandidateMapper, tagAliasMapper);
-        when(abilityTagNormalizer.normalize(any())).thenAnswer(inv -> inv.getArgument(0));
+        lenient().when(abilityTagNormalizer.normalize(any())).thenAnswer(inv -> inv.getArgument(0));
         lenient().when(abilityTagNormalizer.isLowQualityName(any())).thenReturn(false);
         lenient().when(abilityTagNormalizer.isSentenceLike(any())).thenReturn(false);
         lenient().when(abilityTagNormalizer.getQualityScore(any())).thenReturn(60);

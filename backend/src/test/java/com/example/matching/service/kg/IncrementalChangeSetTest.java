@@ -10,6 +10,7 @@ import com.example.matching.service.kg.impl.GraphChangeSetServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.builder.MapperBuilderAssistant;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -59,6 +60,13 @@ class IncrementalChangeSetTest {
     private GraphChangeSetServiceImpl service;
 
     private static final int MAX_RETRY_COUNT = 3;
+
+    @BeforeEach
+    void acquireExecutionLock() {
+        com.example.matching.service.common.DistributedLockService.LockHandle handle =
+                mock(com.example.matching.service.common.DistributedLockService.LockHandle.class);
+        when(distributedLockService.tryAcquire(any())).thenReturn(handle);
+    }
 
     // ========== requestChange tests ==========
 

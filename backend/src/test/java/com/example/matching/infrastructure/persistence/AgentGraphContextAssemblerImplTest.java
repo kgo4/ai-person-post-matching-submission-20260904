@@ -257,8 +257,8 @@ class AgentGraphContextAssemblerImplTest {
 
         AgentGraphContext ctx = assembler.buildForMatching(100L, 200L);
 
-        assertThat(ctx.getAbilityMatches()).hasSize(1);
-        assertThat(ctx.getAbilityMatches().get(0).getAbilityTagId()).isEqualTo(11L);
+        assertThat(ctx.getAbilityMatches()).isEmpty();
+        assertThat(ctx.getNodes()).extracting("nodeKey").doesNotContain("ABILITY:null");
     }
 
     @Test

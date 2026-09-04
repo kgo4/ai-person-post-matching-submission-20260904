@@ -115,6 +115,7 @@ class MatchingCandidateScopeTest {
                 BigDecimal.ZERO, BigDecimal.ZERO, false, "test");
         MatchingTrainingWeightProfileStore.WeightProfile weightProfile =
                 MatchingTrainingWeightProfileStore.WeightProfile.defaultProfile();
+        when(weightProfileStore.currentProfile()).thenReturn(weightProfile);
         MatchEvaluator.EvaluatedMatch evaluated = new MatchEvaluator.EvaluatedMatch(
                 l2Record, new BigDecimal("60.00"), new BigDecimal("80.00"),
                 scoreResult, weightProfile);
@@ -274,8 +275,8 @@ class MatchingRagWeightSkipTest {
     }
 
     @org.junit.jupiter.api.Test
-    void ragWeightPositiveInvokesRagScoreService() {
-        // 对照：ragWeight>0 时正常调用
+    void ragWeightPositiveStillDoesNotInvokeRagScoreService() {
+        // RAG 已退出正式排名；权重保留仅用于旧配置兼容，执行引擎不得调用 RAG 服务。
         MatchingAlgorithmService algorithmService = mock(MatchingAlgorithmService.class);
         RagScoreService ragScoreService = mock(RagScoreService.class);
         MatchEvaluator matchEvaluator = mock(MatchEvaluator.class);
@@ -324,7 +325,8 @@ class MatchingRagWeightSkipTest {
 
         engine.buildScoredRecord(matchContext);
 
-        org.mockito.Mockito.verify(ragScoreService).calculateRagScore(any(), any(), any(), any());
+        org.mockito.Mockito.verify(ragScoreService, org.mockito.Mockito.never())
+                .calculateRagScore(any(), any(), any(), any());
     }
 }
 

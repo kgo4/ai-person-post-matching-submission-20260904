@@ -246,8 +246,8 @@ class EvidenceCenterServiceTest {
     }
 
     @Test
-    @DisplayName("回填岗位能力模型：缺失标签时不生成能力#null")
-    void backfillEvidence_postAbilityModel_withoutTagUsesFallback() {
+    @DisplayName("回填岗位能力模型：缺失能力名称时跳过，避免生成能力#null")
+    void backfillEvidence_postAbilityModel_withoutTagIsSkipped() {
         PostAbilityDTO model = new PostAbilityDTO(
                 22L, 3L, null, 4, new BigDecimal("75"), 1, 1,
                 "v20260601120000", null, null);
@@ -257,18 +257,12 @@ class EvidenceCenterServiceTest {
         doReturn(List.of(model)).when(postQueryPort).listActivePostAbilityModels(any(Integer.class));
         doReturn(post).when(postQueryPort).getPostById(3L);
         doReturn(0L).when(evidenceItemMapper).selectCount(any());
-        doReturn(List.of(passDecision())).when(aiTrustHarnessService).verifyBatch(any());
-        ArgumentCaptor<ContestEvidenceItem> captor = ArgumentCaptor.forClass(ContestEvidenceItem.class);
-        doReturn(1).when(evidenceItemMapper).insert(captor.capture());
-
         int created = evidenceCenterService.backfillEvidence("POST_ABILITY_MODEL", 10);
 
-        assertEquals(1, created);
+        assertEquals(0, created);
         verifyNoInteractions(tagQueryPort);
-        ContestEvidenceItem item = captor.getValue();
-        assertEquals("未关联能力", item.getAbilityName());
-        assertTrue(!item.getSourceTitle().contains("能力#null"));
-        assertTrue(!item.getSourceText().contains("能力#null"));
+        verify(evidenceItemMapper, org.mockito.Mockito.never())
+                .insert(org.mockito.ArgumentMatchers.<ContestEvidenceItem>any());
     }
 
     @Test

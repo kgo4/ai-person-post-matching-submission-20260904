@@ -41,7 +41,8 @@ class VectorRecallFallbackTest {
 
     private static MatchingPostProfile samplePost() {
         return new MatchingPostProfile(
-                1L, "P1", "Java后端工程师", null, "负责后端接口开发", null, List.of());
+                1L, "P1", "Java后端工程师", null, "负责后端接口开发", null, List.of(
+                        new MatchingRequirementSnapshot(10L, "Java", 3, null, null, null, null)));
     }
 
     // ========== Milvus returns empty results ==========

@@ -21,9 +21,9 @@ class DevelopmentRuntimeConfigurationTest {
     }
 
     @Test
-    void developmentProfileUsesNeo4jDefaultDatabase() throws IOException {
+    void developmentProfileDoesNotRequireNeo4jConfiguration() throws IOException {
         String config = Files.readString(DEVELOPMENT_CONFIG);
 
-        assertThat(config).containsPattern("(?s)neo4j:\\R\\s+graph:\\R.*database: \\S+");
+        assertThat(config).doesNotContain("neo4j:");
     }
 }

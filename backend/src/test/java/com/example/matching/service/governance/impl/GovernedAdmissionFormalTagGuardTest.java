@@ -65,6 +65,7 @@ class GovernedAdmissionFormalTagGuardTest {
         claim.setRequiredLevel(3);
         claim.setWeight(new BigDecimal("0.5"));
         claim.setEvidenceText("负责Java模块设计");
+        claim.setSourceRefs(java.util.List.of("fact:POST_ABILITY_MODEL:7"));
         return claim;
     }
 

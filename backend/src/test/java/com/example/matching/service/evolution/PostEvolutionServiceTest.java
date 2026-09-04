@@ -169,7 +169,12 @@ class PostEvolutionServiceTest {
         PostEvolutionEvidence jdEvidence = new PostEvolutionEvidence();
         jdEvidence.setId(1L);
         jdEvidence.setTaskId(1L);
+        jdEvidence.setSourceType("POST_EVOLUTION_TASK");
+        jdEvidence.setSourceRef("source:POST_EVOLUTION_TASK:1");
         jdEvidence.setEvidenceText("JD文本摘要");
+        jdEvidence.setCollectedTime(java.time.LocalDateTime.now());
+        jdEvidence.setSimilarityScore(new BigDecimal("0.90"));
+        jdEvidence.setTrustScore(new BigDecimal("0.90"));
         lenient().when(evidenceCollector.createJdEvidence(any(), any())).thenReturn(jdEvidence);
         lenient().when(evidenceCollector.createMarketJdEvidence(any(), any())).thenReturn(new PostEvolutionEvidence());
         lenient().when(evidenceCollector.createFeedbackEvidence(any(), any())).thenReturn(new PostEvolutionEvidence());
@@ -238,7 +243,8 @@ class PostEvolutionServiceTest {
         PostEvolutionScoringService.EvolutionScore score = new PostEvolutionScoringService.EvolutionScore();
         score.setFinalScore(new BigDecimal("50"));
         when(scoringService.calculateEvolutionScore(any(), any(), any())).thenReturn(score);
-        when(scoringService.findRelatedEvidence(any(), any())).thenReturn(Collections.emptyList());
+        when(scoringService.findRelatedEvidence(any(), any()))
+                .thenAnswer(invocation -> invocation.getArgument(1));
 
         PostEvolutionTask result = postEvolutionService.analyzeTask(1L);
 
@@ -271,7 +277,8 @@ class PostEvolutionServiceTest {
         PostEvolutionScoringService.EvolutionScore score = new PostEvolutionScoringService.EvolutionScore();
         score.setFinalScore(new BigDecimal("50"));
         when(scoringService.calculateEvolutionScore(any(), any(), any())).thenReturn(score);
-        when(scoringService.findRelatedEvidence(any(), any())).thenReturn(Collections.emptyList());
+        when(scoringService.findRelatedEvidence(any(), any()))
+                .thenAnswer(invocation -> invocation.getArgument(1));
 
         postEvolutionService.analyzeTask(1L);
 
@@ -310,7 +317,8 @@ class PostEvolutionServiceTest {
         PostEvolutionScoringService.EvolutionScore score = new PostEvolutionScoringService.EvolutionScore();
         score.setFinalScore(new BigDecimal("50"));
         when(scoringService.calculateEvolutionScore(any(), any(), any())).thenReturn(score);
-        when(scoringService.findRelatedEvidence(any(), any())).thenReturn(Collections.emptyList());
+        when(scoringService.findRelatedEvidence(any(), any()))
+                .thenAnswer(invocation -> invocation.getArgument(1));
 
         postEvolutionService.analyzeTask(1L);
 
@@ -344,7 +352,8 @@ class PostEvolutionServiceTest {
         PostEvolutionScoringService.EvolutionScore score = new PostEvolutionScoringService.EvolutionScore();
         score.setFinalScore(new BigDecimal("50"));
         when(scoringService.calculateEvolutionScore(any(), any(), any())).thenReturn(score);
-        when(scoringService.findRelatedEvidence(any(), any())).thenReturn(Collections.emptyList());
+        when(scoringService.findRelatedEvidence(any(), any()))
+                .thenAnswer(invocation -> invocation.getArgument(1));
 
         postEvolutionService.analyzeTask(1L);
 
