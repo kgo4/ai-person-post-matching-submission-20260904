@@ -13,13 +13,6 @@ const loginFormRef = ref<FormInstance>()
 const loading = ref(false)
 const loginError = ref('')
 
-// This is an isolated, disposable account used only by the competition review entry.
-// It still authenticates through the existing JWT login flow.
-const REVIEW_ACCOUNT = {
-  username: 'reviewer',
-  password: 'review-entry-2026',
-}
-
 const loginForm = reactive({
   // 注册成功后跳回本页会带 ?username=xxx，直接回填省得用户再敲一遍
   username: typeof route.query.username === 'string' ? route.query.username : '',
@@ -56,20 +49,9 @@ async function handleLogin() {
   }
 }
 
-async function handleReviewEntry() {
+function handleReviewEntry() {
   loginError.value = ''
-  loading.value = true
-  try {
-    await userStore.login(REVIEW_ACCOUNT)
-    ElMessage.success('已进入评审演示环境')
-    const redirect = (route.query.redirect as string) || '/workbench'
-    router.push(redirect)
-  } catch (error: any) {
-    loginError.value = error.message || '评审入口暂不可用，请稍后重试'
-    ElMessage.error(loginError.value)
-  } finally {
-    loading.value = false
-  }
+  ElMessage.info('系统已升级，评审入口暂不提供自动登录。请使用对应业务账号登录系统。')
 }
 </script>
 
@@ -146,7 +128,7 @@ async function handleReviewEntry() {
           </el-form-item>
 
           <el-form-item class="review-entry-item">
-            <el-button plain :loading="loading" class="review-entry-btn" @click="handleReviewEntry">
+            <el-button plain class="review-entry-btn" @click="handleReviewEntry">
               评审入口
             </el-button>
           </el-form-item>
