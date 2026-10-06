@@ -100,13 +100,29 @@ cp .env.example .env
 
 ### 3. 初始化数据库
 
-评审环境可使用提交目录中的数据库初始化脚本（全表结构 + 账号 / 角色权限 / 人员记录）初始化数据库：
+数据库结构由**唯一一个建库脚本** `系统数据库结构.sql` 提供（全表结构 + 账号 / 角色权限 / 人员记录；提交目录与源码包根各一份）。
+
+> ⚠️ 脚本不含 `CREATE DATABASE` / `USE`，**导入时必须指定库名**，否则报 `No database selected`。
+
+先只启动数据库容器并等它就绪：
 
 ```bash
-mysql -uroot -p < 系统数据库结构.sql
+docker compose -f docker-compose.yml -f docker-compose.submission.yml up -d mysql
+docker compose -f docker-compose.yml -f docker-compose.submission.yml ps mysql
 ```
 
-> 说明：完整演示数据快照体量较大，未随包提供；重建演示数据请依据 `测试数据/` 与 `测试用例/` 中的语料导入。
+再建库并导入（库名与 `.env` 的 `MYSQL_DATABASE` 一致，默认 `hrms_db`）：
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.submission.yml exec -T mysql \
+  mysql -uroot -p"<MYSQL_PASSWORD>" -e \
+  "CREATE DATABASE IF NOT EXISTS hrms_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+docker compose -f docker-compose.yml -f docker-compose.submission.yml exec -T mysql \
+  mysql -uroot -p"<MYSQL_PASSWORD>" hrms_db < 系统数据库结构.sql
+```
+
+> 完整步骤与校验方式见 `部署说明.md`。完整演示数据快照体量较大，未随包提供；重建演示数据请依据 `测试数据/` 与 `测试用例/` 中的语料导入。
 
 ### 4. 构建并启动
 
@@ -127,10 +143,9 @@ backend/                         Spring Boot 后端与 Agent 服务
 frontend/                        Vue 3 前端
 测试数据/                        岗位 JD、简历和图谱示例数据
 测试用例/                        JD、简历、治理评测脚本与输入样例
-sql/                             手工 SQL 与演示数据脚本
-系统数据库结构.sql  数据库初始化脚本（结构 + 账号/角色/人员）
+系统数据库结构.sql               数据库建库脚本（结构 + 账号/角色/人员）
 docker-compose.yml               完整服务编排
-docker-compose.submission.yml    提交环境构建覆盖配置
+docker-compose.submission.yml    提交环境覆盖配置（源码编译 + 关闭自动迁移 + 免证书 Nginx）
 部署配置/                        容器化部署文件（Dockerfile / compose / nginx / env 模板）
 ```
 
@@ -145,11 +160,12 @@ docker-compose.submission.yml    提交环境构建覆盖配置
 - 在线访问地址：见提交产物目录中的 `在线访问地址.docx`
 - 作品材料与演示视频：由参赛提交目录统一提供
 
-## 提交版本
+## 项目信息
 
 - 项目名称：**多源异构岗位与能力图谱平台**
-- 提交仓库：[ai-person-post-matching-submission-20260904](https://github.com/kgo4/ai-person-post-matching-submission-20260904)
-- 当前提交：`d5ffbcb`
+- 源码仓库：[ai-person-post-matching-submission-20260904](https://github.com/kgo4/ai-person-post-matching-submission-20260904)
+- 离线源码包：提交目录 `项目源码.zip`，内容与本地最新源码一致
+- 数据原则：岗位能力表是岗位需求主要数据源，人员正式能力表是人员能力主要数据源；系统标签库用于能力标准化、跨岗位复用、统计与召回增强，不阻断岗位和人员业务
 
 ## 许可证与说明
 
