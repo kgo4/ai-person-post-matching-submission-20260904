@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  flyway:
+    enabled: true
+
+market-jd:
+  crawler:
+    api-key: ${MARKET_JD_CRAWLER_API_KEY:}
+
+logging:
+  level:
+    root: warn
+    com.example.matching: info
+    org.springframework: warn
+    org.mybatis: warn
+    com.baomidou.mybatisplus: warn

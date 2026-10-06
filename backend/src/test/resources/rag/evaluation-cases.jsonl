@@ -1,0 +1,21 @@
+{"query": "Java开发工程师需要掌握Spring Boot", "chunks": ["mysql:1"], "relevant": ["mysql:1"], "category": "JD"}
+{"query": "Java开发工程师需要掌握Spring Boot", "chunks": ["mysql:2", "mysql:1", "mysql:3"], "relevant": ["mysql:1", "mysql:3"], "category": "JD"}
+{"query": "Java开发工程师需要掌握Spring Boot", "chunks": ["mysql:4", "mysql:5"], "relevant": [], "category": "JD"}
+{"query": "前端开发需要Vue和TypeScript", "chunks": ["mysql:11", "mysql:12", "mysql:13", "mysql:14"], "relevant": ["mysql:11", "mysql:13"], "category": "JD"}
+{"query": "前端开发需要Vue和TypeScript", "chunks": ["mysql:12", "mysql:11"], "relevant": ["mysql:11"], "category": "JD"}
+{"query": "数据库设计与SQL优化能力", "chunks": ["mysql:21", "mysql:22", "mysql:23", "mysql:24", "mysql:25"], "relevant": ["mysql:21", "mysql:22"], "category": "ABILITY_TAG"}
+{"query": "数据库设计与SQL优化能力", "chunks": ["mysql:25", "mysql:21"], "relevant": ["mysql:21"], "category": "ABILITY_TAG"}
+{"query": "数据结构与算法基础", "chunks": ["mysql:31", "mysql:32", "mysql:33"], "relevant": ["mysql:31"], "category": "ABILITY_TAG"}
+{"query": "数据结构与算法基础", "chunks": ["mysql:33", "mysql:31", "mysql:32", "mysql:34"], "relevant": ["mysql:31", "mysql:32"], "category": "ABILITY_TAG"}
+{"query": "员工参与过分布式系统性能调优", "chunks": ["mysql:41", "mysql:42", "mysql:43", "mysql:44", "mysql:45"], "relevant": ["mysql:42", "mysql:44"], "category": "EVIDENCE"}
+{"query": "员工参与过分布式系统性能调优", "chunks": ["mysql:44", "mysql:41"], "relevant": ["mysql:44"], "category": "EVIDENCE"}
+{"query": "员工主导过跨团队项目交付", "chunks": ["mysql:51", "mysql:52", "mysql:53"], "relevant": ["mysql:51", "mysql:53"], "category": "EVIDENCE"}
+{"query": "员工主导过跨团队项目交付", "chunks": ["mysql:53", "mysql:52", "mysql:51", "mysql:54"], "relevant": ["mysql:51", "mysql:53"], "category": "EVIDENCE"}
+{"query": "学习Kubernetes容器编排的最佳实践", "chunks": ["mysql:61", "mysql:62", "mysql:63", "mysql:64"], "relevant": ["mysql:61", "mysql:63"], "category": "LEARNING"}
+{"query": "学习Kubernetes容器编排的最佳实践", "chunks": ["mysql:64", "mysql:61", "mysql:62"], "relevant": ["mysql:61"], "category": "LEARNING"}
+{"query": "Spring Cloud微服务架构设计模式", "chunks": ["mysql:71", "mysql:72", "mysql:73", "mysql:74", "mysql:75"], "relevant": ["mysql:71", "mysql:72", "mysql:74"], "category": "LEARNING"}
+{"query": "Spring Cloud微服务架构设计模式", "chunks": ["mysql:75", "mysql:74", "mysql:71", "mysql:72"], "relevant": ["mysql:71", "mysql:72"], "category": "LEARNING"}
+{"query": "Redis缓存一致性保障方案", "chunks": ["mysql:81", "mysql:82", "mysql:83"], "relevant": ["mysql:81", "mysql:82"], "category": "EVIDENCE"}
+{"query": "Redis缓存一致性保障方案", "chunks": ["mysql:82", "mysql:81", "mysql:83", "mysql:84"], "relevant": ["mysql:81", "mysql:82"], "category": "EVIDENCE"}
+{"query": "高并发系统架构设计能力", "chunks": ["mysql:91", "mysql:92", "mysql:93", "mysql:94", "mysql:95"], "relevant": ["mysql:91", "mysql:93", "mysql:95"], "category": "ABILITY_TAG"}
+{"query": "高并发系统架构设计能力", "chunks": ["mysql:95", "mysql:91"], "relevant": ["mysql:91"], "category": "ABILITY_TAG"}

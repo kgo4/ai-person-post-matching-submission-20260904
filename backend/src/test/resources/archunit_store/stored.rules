@@ -1,0 +1,8 @@
+#
+#Wed Jul 29 01:03:13 CST 2026
+Controller\ \u4E0D\u5F97\u76F4\u63A5\u4F9D\u8D56\ Entity\ \u7C7B\u578B\uFF0C\u8BF7\u901A\u8FC7\ DTO/VO\ \u8FD4\u56DE=8dc5abca-ea5e-4f46-8dae-8d41b5cf8821
+Controller\ \u4E0D\u5F97\u76F4\u63A5\u4F9D\u8D56\ Milvus/\u5411\u91CF\u670D\u52A1\uFF0C\u8BF7\u901A\u8FC7\u5E94\u7528\ Service\ \u8BBF\u95EE=a5325d03-8103-4736-8b69-aa8a33a4d61e
+platform\ \u5C42\u4E0D\u5F97\u4F9D\u8D56\u4E1A\u52A1\ Service\uFF0C\u8BF7\u4F7F\u7528\u63A5\u53E3\u53CD\u8F6C\u6216\u4E8B\u4EF6=d54feff8-cad2-4f22-9bc5-262ad0f52f2d
+\u8DE8\u9886\u57DF\ Service\ \u8BBF\u95EE\u5E94\u7ECF\u8FC7\ port\ \u63A5\u53E3\u800C\u975E\u76F4\u63A5\u4F9D\u8D56\ impl=8abc5f86-9381-4575-908c-8544e7e570dc
+slices\ matching\ 'com.example.matching.service.(*)..'\ should\ be\ free\ of\ cycles=1d0f4344-eb49-413c-909b-5cf16e3aedae
+Service/Application\ \u5C42\u4E0D\u5F97\u4F9D\u8D56\ Controller\ \u5C42=b641e14b-f030-45a2-a8bd-4895b142b764

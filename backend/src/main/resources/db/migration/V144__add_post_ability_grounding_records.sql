@@ -1,0 +1,20 @@
+CREATE TABLE post_ability_grounding_record (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    post_id BIGINT NOT NULL,
+    ability_name VARCHAR(255) NULL,
+    normalized_ability_name VARCHAR(255) NULL,
+    ability_tag_id BIGINT NULL,
+    source_type VARCHAR(64) NULL,
+    source_ref_id BIGINT NULL,
+    evidence_text TEXT NULL,
+    evidence_anchor VARCHAR(255) NULL,
+    evidence_start INT NULL,
+    evidence_end INT NULL,
+    validation_status VARCHAR(32) NOT NULL COMMENT 'SUBMITTED, DEFERRED, REJECTED',
+    validation_reason VARCHAR(1000) NULL,
+    created_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY idx_post_ability_grounding_post (post_id, created_time),
+    KEY idx_post_ability_grounding_source (source_type, source_ref_id),
+    KEY idx_post_ability_grounding_status (validation_status, created_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='岗位能力与JD原文证据校验审计台账';

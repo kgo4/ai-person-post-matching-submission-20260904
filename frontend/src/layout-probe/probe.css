@@ -1,0 +1,26 @@
+/* 探针专用：只做最小重置，其余样式一律来自真实组件与 global.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#probe-app {
+  margin: 0;
+  padding: 0;
+}
+
+/* 报告块固定在视口下方，避免它的高度反过来影响布局测量 */
+#probe-report {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  max-width: 100vw;
+  max-height: 40vh;
+  margin: 0;
+  overflow: auto;
+  background: #fff;
+  font-size: 10px;
+  line-height: 1.35;
+}

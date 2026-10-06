@@ -1,0 +1,51 @@
+# Integration test profile: uses Testcontainers for MySQL, Redis, RabbitMQ
+# Containers are started by AbstractIntegrationTest base class
+
+spring:
+  profiles:
+    active: integration
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: guest
+    password: guest
+    publisher-confirm-type: correlated
+    publisher-returns: true
+  main:
+    allow-bean-definition-overriding: true
+
+# Disable external services not covered by Testcontainers
+neo4j:
+  graph:
+    enabled: false
+
+milvus:
+  enabled: false
+
+volcengine:
+  ark:
+    base-url: http://localhost:9999
+    api-key: test-key
+  asr:
+    ws-url: ws://localhost:9999
+
+jwt:
+  secret: test-secret-key-for-integration-tests-only-32bytes!
+  expiration: 3600000
+
+spring.task.scheduling.enabled: false
+
+logging:
+  level:
+    com.example.matching: DEBUG
+    org.springframework.cache: DEBUG
+    org.testcontainers: INFO

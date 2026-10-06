@@ -1,0 +1,65 @@
+# Test profile: unit tests with mocked infrastructure
+# Testcontainers integration tests use application-integration.yml instead
+
+server:
+  port: 0
+
+spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+  ai:
+    openai:
+      embedding:
+        api-key: false
+
+# Disable external services
+neo4j:
+  graph:
+    enabled: false
+
+milvus:
+  enabled: false
+
+volcengine:
+  ark:
+    base-url: http://localhost:9999
+    api-key: test-key
+  asr:
+    ws-url: ws://localhost:9999
+
+# JWT test secret
+jwt:
+  secret: test-secret-key-for-unit-tests-only-not-production-safe-32b
+  expiration: 3600000
+
+# Disable scheduling for unit tests
+spring.task.scheduling.enabled: false
+
+logging:
+  level:
+    com.example.matching: WARN
+    org.springframework.cache: WARN

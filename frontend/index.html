@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      站点图标：由品牌 Logo 按标准尺寸分别导出，而不是让浏览器自己缩一张大图。
+      16 = 标签页 / 32 = 高分屏标签页 / 48 = Windows 任务栏与快捷方式；
+      .ico 是 16+32+48 三合一，兜底老浏览器与书签。
+      apple-touch-icon 必须不透明 —— iOS 会把透明区域填成黑色，故导出时已合到白底。
+      尺寸契约见 src/icons-asset.test.mjs，重新导出前先看它。
+    -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KGOAIspace 多源异构岗位与能力图谱平台</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
